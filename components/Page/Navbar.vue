@@ -16,13 +16,15 @@ const menus = computed((): IMenuItem[] => [
     text: t('pages.getting-started.nav'),
     route: { name: 'getting-started' },
   },
-  { type: 'link', text: t('pages.blank.nav'), route: { name: 'blank' } },
+  // { type: 'link', text: t('pages.blank.nav'), route: { name: 'blank' } },
   { type: 'link', text: t('pages.test.nav'), route: { name: 'test' } },
   { type: 'link', text: t('pages.post.nav'), route: { name: 'post' } },
   { type: 'link', text: t('pages.setting.nav'), route: { name: 'setting' } },
+  { type: 'link', text: t('pages.dashboard.nav'), route: { name: 'dashboard' } },
+  { type: 'link', text: t('docs'), route: { name: 'docs' } },
   {
     type: 'button',
-    text: t('pages.dashboard.nav'),
+    text: t('Login'),
     route: { name: 'dashboard' },
   },
 ])
@@ -30,7 +32,7 @@ const menus = computed((): IMenuItem[] => [
 
 <template>
   <BuilderNavbar>
-    <template #banner>
+    <!-- <template #banner>
       <div
         class="text-white text-xs text-center py-1 px-4 lg:px-8 bg-primary-500 capitalize"
       >
@@ -39,13 +41,15 @@ const menus = computed((): IMenuItem[] => [
           <Anchor
             class="underline font-bold"
             :text="$t('others.learn_more')"
-            href="https://github.com/viandwi24/nuxt3-awesome-starter"
+            href=""
           />
         </span>
       </div>
-    </template>
+    </template> -->
+   
     <template #menu>
       <div class="relative hidden lg:flex items-center ml-auto">
+        
         <nav
           class="text-sm leading-6 font-semibold text-gray-600 dark:text-gray-300"
           role="navigation"
@@ -73,14 +77,14 @@ const menus = computed((): IMenuItem[] => [
         <div
           class="flex space-x-4 border-l ml-6 pl-6 border-gray-900/10 dark:border-gray-50/[0.2]"
         >
-          <LanguageSwitcher />
+          <!-- <LanguageSwitcher /> -->
           <ThemeSwitcher />
           <Anchor
             class="hover:no-underline hover:text-slate-900 hover:dark:text-white text-lg flex self-center items-center"
             href="https://github.com/viandwi24/nuxt3-awesome-starter"
             title="Github"
           >
-            <IconMdi:github-face />
+            <!-- <IconMdi:github-face /> -->
           </Anchor>
         </div>
       </div>
@@ -124,21 +128,21 @@ const menus = computed((): IMenuItem[] => [
           <div class="mt-2">
             <ThemeSwitcher type="select-box" />
           </div>
-          <div class="mt-6 text-sm font-bold capitalize">
+          <!-- <div class="mt-6 text-sm font-bold capitalize">
             {{ $t('components.language_switcher.change_language') }}
           </div>
           <div class="mt-2">
             <LanguageSwitcher type="select-box" />
-          </div>
+          </div> -->
         </ActionSheetBody>
-        <Button
+        <!-- <Button
           type="secondary"
           title="Github"
           href="https://github.com/viandwi24/nuxt3-awesome-starter"
         >
           <IconMdi:github-face />
           <span class="ml-1">Github</span>
-        </Button>
+        </Button> -->
         <Button
           text="Close"
           type="secondary"

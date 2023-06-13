@@ -87,10 +87,11 @@ const toggleOptions = (show?: boolean) => {
             >
               <span class="sr-only">home</span>
               <span class="flex items-center">
-                <IconSimpleIcons:nuxtdotjs
+                <!-- <IconSimpleIcons:nuxtdotjs
                   class="inline-block mr-2 text-lg text-primary-500"
                 />
-                {{ app.name }}
+                {{ app.name }} -->
+                <span class="brand-logo">D</span>Drop
               </span>
             </NuxtLink>
           </slot>
@@ -167,5 +168,11 @@ html.dark {
   a.router-link-exact-active {
     color: theme('colors.white');
   }
+}
+.brand-logo {
+  background: #157F1F;
+  padding: 5px 10px;
+  border-radius: 2px;
+  border-top-right-radius: 15px;
 }
 </style>
