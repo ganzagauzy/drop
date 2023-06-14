@@ -62,7 +62,7 @@ const currentStyle = toRef(props, 'type')
           <span class="text-sm mr-2 flex items-center">
             <IconUil:sun v-if="theme.key === 'light'" />
             <IconUil:moon v-else-if="theme.key === 'dark'" />
-            <IconUil:laptop v-else-if="theme.key === 'system'" />
+            <!-- <IconUil:laptop v-else-if="theme.key === 'system'" /> -->
             <IconUil:clock v-else-if="theme.key === 'realtime'" />
           </span>
           {{ theme.text }}

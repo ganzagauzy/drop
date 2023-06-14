@@ -9,11 +9,11 @@ definePageMeta({
   layout: 'page',
 })
 useHead(() => ({
-  title: capitalize(t('pages.post.title')),
+  title: capitalize(t('pages.blog.title')),
   meta: [
     {
       name: 'description',
-      content: t('pages.post.description'),
+      content: t('pages.blog.description'),
     },
   ],
 }))
@@ -22,10 +22,10 @@ useHead(() => ({
 <template>
   <PageWrapper>
     <PageHeader>
-      <PageTitle :text="$t('pages.post.title')" class="capitalize" />
+      <PageTitle :text="$t('blog')" class="capitalize" />
     </PageHeader>
     <PageBody>
-      <ContentList v-slot="{ list }" path="/post">
+      <ContentList v-slot="{ list }" path="/blog">
         <PageSection v-for="article in list" :key="article._path">
           <div
             class="block hover:no-underline p-6 flex space-x-6 rounded border border-gray-900/10 dark:border-gray-50/[0.2]"

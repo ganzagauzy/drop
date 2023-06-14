@@ -1,4 +1,5 @@
-export type IThemeSettingOptions = 'dark' | 'light' | 'system' | 'realtime'
+export type IThemeSettingOptions = 'dark' | 'light' |  'realtime'
+// export type IThemeSettingOptions = 'dark' | 'light' | 'system' | 'realtime'
 
 export type ITheme = 'dark' | 'light'
 
@@ -8,7 +9,7 @@ export const availableThemes: {
 }[] = [
   { key: 'light', text: 'Light' },
   { key: 'dark', text: 'Dark' },
-  { key: 'system', text: 'System' },
+  // { key: 'system', text: 'System' },
   { key: 'realtime', text: 'Realtime' },
 ]
 
@@ -50,17 +51,19 @@ export function ThemeManager() {
     themeUserSetting.value = themeSetting
     if (themeSetting === 'realtime') {
       themeCurrent.value = getRealtimeTheme()
-    } else if (themeSetting === 'system') {
-      themeCurrent.value = getSystemTheme()
-    } else {
+    }
+    //  else if (themeSetting === 'system') {
+    //   themeCurrent.value = getSystemTheme()
+    // } 
+    else {
       themeCurrent.value = themeSetting
     }
   }
   watch(themeSetting, (val) => onThemeSettingChange(val))
   const onThemeSystemChange = () => {
-    if (themeSetting.value === 'system') {
-      themeCurrent.value = getSystemTheme()
-    }
+    // if (themeSetting.value === 'system') {
+    //   themeCurrent.value = getSystemTheme()
+    // }
   }
   const onRealtimeCheck = () => {
     if (themeSetting.value === 'realtime') {

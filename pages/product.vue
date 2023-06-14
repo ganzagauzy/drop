@@ -27,7 +27,7 @@ const identity = useIdentity()
 <template>
   <PageWrapper>
     <PageHeader>
-      <PageTitle :text="$t('pages.test.title')" class="capitalize" />
+      <PageTitle :text="$t('Product')" class="capitalize" />
     </PageHeader>
     <PageBody>
       <PageSection>

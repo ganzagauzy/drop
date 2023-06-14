@@ -4,7 +4,7 @@ import IconsResolver from 'unplugin-icons/resolver'
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
   // server side rendering mode
-  ssr: true,
+  ssr: false,
 
   // typescripts
   typescript: {
@@ -13,7 +13,7 @@ export default defineNuxtConfig({
   },
 
   // css
-  css: ['~/assets/sass/vendor.scss', '~/assets/sass/app.scss'],
+  // css: ['~/assets/sass/vendor.scss', '~/assets/sass/app.scss'],
 
   // plugins
   plugins: ['~/plugins/navbar.ts'],

@@ -91,7 +91,7 @@ const toggleOptions = (show?: boolean) => {
                   class="inline-block mr-2 text-lg text-primary-500"
                 />
                 {{ app.name }} -->
-                <span class="brand-logo">D</span>Drop
+                <span class="brand-logo">D</span>Rop
               </span>
             </NuxtLink>
           </slot>
@@ -145,7 +145,7 @@ const toggleOptions = (show?: boolean) => {
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .slide-fade-from-up-enter-active {
   transition: all 0.3s ease-out;
 }

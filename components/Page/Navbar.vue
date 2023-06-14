@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-import { AppConfigInput } from '@nuxt/schema'
+import { AppConfigInput } from '@nuxt/schema';
+
 
 export interface IMenuItem {
   type: 'link' | 'button'
@@ -17,15 +18,17 @@ const menus = computed((): IMenuItem[] => [
     route: { name: 'getting-started' },
   },
   // { type: 'link', text: t('pages.blank.nav'), route: { name: 'blank' } },
-  { type: 'link', text: t('pages.test.nav'), route: { name: 'test' } },
-  { type: 'link', text: t('pages.post.nav'), route: { name: 'post' } },
-  { type: 'link', text: t('pages.setting.nav'), route: { name: 'setting' } },
-  { type: 'link', text: t('pages.dashboard.nav'), route: { name: 'dashboard' } },
+  { type: 'link', text: t('product'), route: { name: 'product' } },
   { type: 'link', text: t('docs'), route: { name: 'docs' } },
+  { type: 'link', text: t('blog'), route: { name: 'blog' } },
+  { type: 'link', text: t('Pricing'), route: { name: 'pricing' } },
+  // { type: 'link', text: t('pages.setting.nav'), route: { name: 'setting' } },
+  // { type: 'link', text: t('pages.dashboard.nav'), route: { name: 'dashboard' } },
+ 
   {
     type: 'button',
     text: t('Login'),
-    route: { name: 'dashboard' },
+    route: { name: 'login' },
   },
 ])
 </script>
