@@ -15,10 +15,8 @@
     "preview": "nuxt preview",
     "start": "node .output/server/index.mjs",
     "serve": "serve dist/",
-    
     "lint": "eslint --ext \".ts,.js,.vue\" --ignore-path .eslintignore .",
     "lintfix": "eslint --fix --ext \".ts,.js,.vue\" --ignore-path .eslintignore .",
-    
     "clean": "rm -rf .nuxt dist .output",
     "generate:locales": "node tools/translator.js ./locales en.yml"
   },
@@ -26,6 +24,7 @@
     "@babel/core": "^7.20.2",
     "@commitlint/cli": "^17.2.0",
     "@commitlint/config-conventional": "^17.2.0",
+    "@flydotio/dockerfile": "^0.2.15",
     "@headlessui/vue": "^1.7.8",
     "@iconify/json": "^2.1.135",
     "@intlify/nuxt3": "^0.2.4",
