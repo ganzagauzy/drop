@@ -52,9 +52,6 @@ devDependencies:
   eslint-plugin-prettier:
     specifier: ^4.2.1
     version: 4.2.1(eslint-config-prettier@8.5.0)(eslint@8.32.0)(prettier@2.8.1)
-  husky:
-    specifier: ^8.0.2
-    version: 8.0.2
   js-yaml:
     specifier: ^4.1.0
     version: 4.1.0
@@ -172,29 +169,6 @@ packages:
     engines: {node: '>=6.9.0'}
     dev: true
 
-  /@babel/core@7.20.12:
-    resolution: {integrity: sha512-XsMfHovsUYHFMdrIHkZphTN/2Hzzi78R08NuHfDBehym2VsPDL6Zn/JAD/JQdnRvbSsbQc4mVaU1m6JgtTEElg==}
-    engines: {node: '>=6.9.0'}
-    dependencies:
-      '@ampproject/remapping': 2.2.0
-      '@babel/code-frame': 7.22.5
-      '@babel/generator': 7.22.5
-      '@babel/helper-compilation-targets': 7.22.5(@babel/core@7.20.12)
-      '@babel/helper-module-transforms': 7.22.5
-      '@babel/helpers': 7.22.5
-      '@babel/parser': 7.22.5
-      '@babel/template': 7.22.5
-      '@babel/traverse': 7.22.5
-      '@babel/types': 7.22.5
-      convert-source-map: 1.9.0
-      debug: 4.3.4
-      gensync: 1.0.0-beta.2
-      json5: 2.2.3
-      semver: 6.3.0
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
   /@babel/core@7.20.5:
     resolution: {integrity: sha512-UdOWmk4pNWTm/4DlPUl/Pt4Gz4rcEMb7CY0Y3eJl5Yz1vI8ZJGmHWaVE55LoxRjdpx0z259GE9U5STA9atUinQ==}
     engines: {node: '>=6.9.0'}
@@ -285,20 +259,6 @@ packages:
       '@babel/core': 7.20.5
       '@babel/helper-validator-option': 7.18.6
       browserslist: 4.21.4
-      semver: 6.3.0
-    dev: true
-
-  /@babel/helper-compilation-targets@7.22.5(@babel/core@7.20.12):
-    resolution: {integrity: sha512-Ji+ywpHeuqxB8WDxraCiqR0xfhYjiDE/e6k7FuIaANnoOFxAHskHChz4vA1mJC9Lbm01s1PVAGhQY4FUKSkGZw==}
-    engines: {node: '>=6.9.0'}
-    peerDependencies:
-      '@babel/core': ^7.0.0
-    dependencies:
-      '@babel/compat-data': 7.22.5
-      '@babel/core': 7.20.12
-      '@babel/helper-validator-option': 7.22.5
-      browserslist: 4.21.4
-      lru-cache: 5.1.1
       semver: 6.3.0
     dev: true
 
@@ -1511,11 +1471,6 @@ packages:
       regenerator-runtime: 0.13.11
     dev: true
 
-  /@babel/standalone@7.20.14:
-    resolution: {integrity: sha512-zxdQD6+eMQumJFPOLpOZE34JAAGrZPMXCKvHR7Mtat/l+nHDOxlit5u85HDk5WkBXmvN5PhUMeimiC95KXD9+A==}
-    engines: {node: '>=6.9.0'}
-    dev: true
-
   /@babel/standalone@7.22.5:
     resolution: {integrity: sha512-6Lwhzral4YDEbIM3dBC8/w0BMDvOosGBGaJWSORLkerx8byawkmwwzXKUB0jGlI1Zp90+cK2uyTl62UPtLbUjQ==}
     engines: {node: '>=6.9.0'}
@@ -1581,15 +1536,6 @@ packages:
     dependencies:
       '@babel/helper-string-parser': 7.19.4
       '@babel/helper-validator-identifier': 7.19.1
-      to-fast-properties: 2.0.0
-    dev: true
-
-  /@babel/types@7.20.7:
-    resolution: {integrity: sha512-69OnhBxSSgK0OzTJai4kyPDiKTIe3j+ctaHdIGVbRahTLAT7L3R9oeXHC2aVSuGYt3cVnoAMDmOCgJ2yaiLMvg==}
-    engines: {node: '>=6.9.0'}
-    dependencies:
-      '@babel/helper-string-parser': 7.22.5
-      '@babel/helper-validator-identifier': 7.22.5
       to-fast-properties: 2.0.0
     dev: true
 
@@ -2675,14 +2621,14 @@ packages:
       c12: 1.4.1
       create-require: 1.1.1
       defu: 6.1.2
-      hookable: 5.4.2
+      hookable: 5.5.3
       jiti: 1.18.2
       pathe: 1.1.1
       pkg-types: 1.0.3
       postcss-import-resolver: 2.0.0
       scule: 1.0.0
-      std-env: 3.3.1
-      ufo: 1.0.1
+      std-env: 3.3.3
+      ufo: 1.1.2
       unimport: 2.0.1(rollup@3.12.0)
       untyped: 1.3.2
     transitivePeerDependencies:
@@ -2839,7 +2785,7 @@ packages:
       rollup: 3.12.0
       rollup-plugin-visualizer: 5.9.0(rollup@3.12.0)
       ufo: 1.1.2
-      unplugin: 1.0.1
+      unplugin: 1.3.1
       vite: 4.0.4(@types/node@14.18.34)(sass@1.53.0)
       vite-node: 0.28.3(@types/node@14.18.34)(sass@1.53.0)
       vite-plugin-checker: 0.5.5(eslint@8.32.0)(typescript@4.9.4)(vite@4.0.4)(vue-tsc@1.0.12)
@@ -3822,12 +3768,12 @@ packages:
       acorn: 7.4.1
     dev: true
 
-  /acorn-jsx@5.3.2(acorn@8.8.1):
+  /acorn-jsx@5.3.2(acorn@8.8.2):
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
     peerDependencies:
       acorn: ^6.0.0 || ^7.0.0 || ^8.0.0
     dependencies:
-      acorn: 8.8.1
+      acorn: 8.8.2
     dev: true
 
   /acorn-walk@8.2.0:
@@ -5830,7 +5776,7 @@ packages:
     peerDependencies:
       eslint: '>=8.23.1'
     dependencies:
-      '@babel/helper-validator-identifier': 7.19.1
+      '@babel/helper-validator-identifier': 7.22.5
       ci-info: 3.7.0
       clean-regexp: 1.0.0
       eslint: 8.32.0
@@ -5991,8 +5937,8 @@ packages:
     resolution: {integrity: sha512-XwctdmTO6SIvCzd9810yyNzIrOrqNYV9Koizx4C/mRhf9uq0o4yHoCEU/670pOxOL/MSraektvSAji79kX90Vg==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dependencies:
-      acorn: 8.8.1
-      acorn-jsx: 5.3.2(acorn@8.8.1)
+      acorn: 8.8.2
+      acorn-jsx: 5.3.2(acorn@8.8.2)
       eslint-visitor-keys: 3.3.0
     dev: true
 
@@ -6028,10 +5974,6 @@ packages:
 
   /estree-walker@2.0.2:
     resolution: {integrity: sha512-Rfkk/Mp/DL7JVje3u18FxFujQlTNR2q6QfMSMB7AvCBx91NGj/ba3kCfza0f6dVDbw7YlRf/nDrn7pQrCCyQ/w==}
-    dev: true
-
-  /estree-walker@3.0.1:
-    resolution: {integrity: sha512-woY0RUD87WzMBUiZLx8NsYr23N5BKsOMZHhu2hoNRVh6NXGfoiT1KOL8G3UHlJAnEDGmfa5ubNA/AacfG+Kb0g==}
     dev: true
 
   /estree-walker@3.0.3:
@@ -6829,12 +6771,6 @@ packages:
   /human-signals@3.0.1:
     resolution: {integrity: sha512-rQLskxnM/5OCldHo+wNXbpVgDn5A17CUoKX+7Sokwaknlq7CdSnphy0W39GU8dw59XiCXmFXDg4fRuckQRKewQ==}
     engines: {node: '>=12.20.0'}
-    dev: true
-
-  /husky@8.0.2:
-    resolution: {integrity: sha512-Tkv80jtvbnkK3mYWxPZePGFpQ/tT3HNSs/sasF9P2YfkMezDl3ON37YN6jUUI4eTg5LcyVynlb6r4eyvOmspvg==}
-    engines: {node: '>=14'}
-    hasBin: true
     dev: true
 
   /iconv-lite@0.4.24:
@@ -8220,7 +8156,7 @@ packages:
   /mlly@1.1.0:
     resolution: {integrity: sha512-cwzBrBfwGC1gYJyfcy8TcZU1f+dbH/T+TuOhtYP2wLv/Fb51/uV7HJQfBPtEupZ2ORLRU1EKFS/QfS3eo9+kBQ==}
     dependencies:
-      acorn: 8.8.1
+      acorn: 8.8.2
       pathe: 1.1.1
       pkg-types: 1.0.3
       ufo: 1.1.2
@@ -8341,7 +8277,7 @@ packages:
       mime: 3.0.0
       mlly: 1.3.0
       mri: 1.2.0
-      node-fetch-native: 1.0.1
+      node-fetch-native: 1.2.0
       ofetch: 1.0.0
       ohash: 1.1.2
       pathe: 1.1.1
@@ -10395,7 +10331,7 @@ packages:
   /strip-literal@1.0.0:
     resolution: {integrity: sha512-5o4LsH1lzBzO9UFH63AJ2ad2/S2AVx6NtjOcaz+VTT2h1RiRvbipW72z8M/lxEhcPHDBQwpDrnTF7sXy/7OwCQ==}
     dependencies:
-      acorn: 8.8.1
+      acorn: 8.8.2
     dev: true
 
   /strip-literal@1.0.1:
@@ -10797,10 +10733,10 @@ packages:
   /unctx@2.1.1:
     resolution: {integrity: sha512-RffJlpvLOtolWsn0fxXsuSDfwiWcR6cyuykw2e0+zAggvGW1SesXt9WxIWlWpJhwVCZD/WlxxLqKLS50Q0CkWA==}
     dependencies:
-      acorn: 8.8.1
-      estree-walker: 3.0.1
+      acorn: 8.8.2
+      estree-walker: 3.0.3
       magic-string: 0.26.7
-      unplugin: 1.0.0
+      unplugin: 1.3.1
     dev: true
 
   /unctx@2.3.1:
@@ -10817,7 +10753,7 @@ packages:
     dependencies:
       defu: 6.1.2
       mime: 3.0.0
-      node-fetch-native: 1.0.1
+      node-fetch-native: 1.2.0
       pathe: 1.1.1
     dev: true
 
@@ -11067,7 +11003,7 @@ packages:
   /unplugin@1.0.1:
     resolution: {integrity: sha512-aqrHaVBWW1JVKBHmGo33T5TxeL0qWzfvjWokObHA9bYmN7eNDkwOxmLjhioHl9878qDFMAaT51XNroRyuz7WxA==}
     dependencies:
-      acorn: 8.8.1
+      acorn: 8.8.2
       chokidar: 3.5.3
       webpack-sources: 3.2.3
       webpack-virtual-modules: 0.5.0
@@ -11105,9 +11041,9 @@ packages:
   /untyped@1.2.2:
     resolution: {integrity: sha512-EANYd5L6AdpgfldlgMcmvOOnj092nWhy0ybhc7uhEH12ipytDYz89EOegBQKj8qWL3u1wgYnmFjADhsuCJs5Aw==}
     dependencies:
-      '@babel/core': 7.20.12
-      '@babel/standalone': 7.20.14
-      '@babel/types': 7.20.7
+      '@babel/core': 7.22.5
+      '@babel/standalone': 7.22.5
+      '@babel/types': 7.22.5
       scule: 1.0.0
     transitivePeerDependencies:
       - supports-color
