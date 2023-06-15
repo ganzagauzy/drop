@@ -12,11 +12,11 @@ export interface IMenuItem {
 const { t } = useLang()
 const app = useAppConfig() as AppConfigInput
 const menus = computed((): IMenuItem[] => [
-  {
-    type: 'link',
-    text: t('pages.getting-started.nav'),
-    route: { name: 'getting-started' },
-  },
+  // {
+  //   type: 'link',
+  //   text: t('pages.getting-started.nav'),
+  //   route: { name: 'getting-started' },
+  // },
   // { type: 'link', text: t('pages.blank.nav'), route: { name: 'blank' } },
   { type: 'link', text: t('product'), route: { name: 'product' } },
   { type: 'link', text: t('docs'), route: { name: 'docs' } },

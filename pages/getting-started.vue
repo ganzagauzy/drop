@@ -6,7 +6,7 @@ const { t } = useLang()
 
 // compiler macro
 definePageMeta({
-  layout: 'page',
+  layout: 'docs',
 })
 useHead(() => ({
   title: capitalize(t('pages.getting-started.title')),

@@ -15,8 +15,22 @@
             <div class="w-full max-w-md">
               <form class="px-8  pb-8 mb-4" @submit.prevent="submit">
                 <div class="text-center">
-                  <h1 class="font-bold my-5">Welcome Back !!</h1>
-                  <p class="mb-5">Sign in to continue to Drop.</p>
+                  <h1 class="font-bold my-5">Create New Account !!</h1>
+                  <p class="mb-5">Get your free Drop account now</p>
+                </div>
+                <div class="mb-4">
+                  <label
+                    class="block text-700 text-sm font-bold mb-2"
+                    for="name"
+                    >Name</label
+                  >
+                  <input
+                    id="name"
+                    v-model="name"
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-700 leading-tight focus:outline-none focus:shadow-outline"
+                    type="text"
+                    placeholder="Name"
+                  />
                 </div>
                 <div class="mb-4">
                   <label
@@ -59,7 +73,7 @@
               <div class="py-5">
                   <p class="text-center">
                     Have an account ?
-                    <nuxt-link to="/auth/register">Login</nuxt-link>
+                    <nuxt-link to="/login">Login</nuxt-link>
                   </p>
                 </div>
             </div>
@@ -77,6 +91,7 @@
         show1: false,
         password: '',
         username: '',
+        name:"",
         bodyBackgroundColorClass: '',
       }
     },
@@ -153,7 +168,7 @@
   .bg-white {
     background-color: #ffffff;
   }
-  .bg-gray-800 {
+  .bg-dark {
     background-color: #1f2937;
   }
   

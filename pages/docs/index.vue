@@ -6,8 +6,11 @@ import {
   TabPanels,
   TabPanel,
 } from '@headlessui/vue'
+// import {  } from 'vue'
+// import { definePageMeta,useLang,useScreen,useHead, } from "vue";
 import { capitalize } from '~/utils/str'
 import { Size } from '~/composables/useScreen'
+
 
 // composable
 const { t } = useLang()
