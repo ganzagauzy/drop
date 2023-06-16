@@ -17,7 +17,7 @@
           <div class="lg:pl-8 py-4">
             <DashboardSidebar />
           </div>
-          <div class="flex flex-col lg:ml-60 xl:ml-80">
+          <div class="flex flex-col lg:ml-60 xl:ml-60">
             <slot />
             <slot name="footer">
               <PageFooter />
@@ -30,3 +30,6 @@
     <div id="app-after"></div>
   </div>
 </template>
+<style lang="scss" scoped>
+
+</style>

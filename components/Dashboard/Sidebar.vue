@@ -24,37 +24,53 @@ export default defineComponent({
 <template>
   <div
     ref="sidebar"
+    class="border-r lg:border-gray-900/10 dark:border-gray-50/[0.2]"
     :class="{
-      'fixed top-0 hidden pt-12 lg:flex lg:w-60 xl:w-80 h-screen':
+      'fixed top-0 hidden pt-12 lg:flex lg:w-50 xl:w-60 h-screen':
         mode === 'normal',
       'relative flex-1 flex flex-col w-full': mode === 'mobile',
     }"
   >
-    <div class="flex-1 overflow-y-auto pl-4 lg:pl-0 pr-4 py-4">
+    <div class="flex-1 overflow-y-auto pl-4 lg:pl-0 pr-4 py-10">
       <ul>
-        <li v-for="i in 29" :key="i">
+        <li>
           <Anchor
             :to="{ name: 'dashboard' }"
             class="group flex items-center mb-4 hover:no-underline"
           >
             <div
-              class="flex items-center mr-4 px-2 py-2 rounded-md ring-1 ring-slate-900/5 shadow-sm group-hover:shadow group-hover:ring-slate-900/10 dark:ring-0 dark:shadow-none dark:group-hover:shadow-none dark:group-hover:highlight-white/10 group-hover:shadow-sky-200 dark:highlight-white/10"
-              :class="{
-                'text-white dark:text-white group-hover:bg-sky-500 bg-sky-500':
-                  i === 1,
-                'text-slate-500 dark:text-gray-100 group-hover:bg-gray-200 bg-gray-100 dark:group-hover:bg-slate-600 dark:bg-slate-700':
-                  i !== 1,
-              }"
+              class="flex items-center mr-4 px-2 py-2   dark:ring-0 dark:shadow-none dark:group-hover:shadow-none dark:group-hover:highlight-white/10 group-hover:shadow-sky-200 dark:highlight-white/10"
+              
             >
+            <!-- group-hover:shadow group-hover:ring-slate-900/10 -->
               <IconUil:apps class="text-xs" />
             </div>
             <span
               class="text-sm font-semibold capitalize"
-              :class="{
-                'font-extrabold text-sky-500 dark:text-sky-400': i === 1,
-              }"
+              
             >
-              {{ $t('pages.dashboard.index.nav') }}
+              {{ $t('apps') }}
+            </span>
+          </Anchor>
+        </li>
+        <li>
+          <Anchor
+            :to="{ name: 'dashboard-apps' }"
+            class="group flex items-center mb-4 hover:no-underline"
+          >
+            <div
+              class="flex items-center mr-4 px-2 py-2    dark:ring-0 dark:shadow-none dark:group-hover:shadow-none dark:group-hover:highlight-white/10 group-hover:shadow-sky-200 dark:highlight-white/10"
+              
+            >
+            <!-- group-hover:shadow group-hover:ring-slate-900/10 -->
+            <!-- rounded-md ring-1 ring-slate-900/5 shadow-sm -->
+              <IconUil:apps class="text-xs" />
+            </div>
+            <span
+              class="text-sm font-semibold capitalize"
+              
+            >
+              {{ $t('builds') }}
             </span>
           </Anchor>
         </li>
@@ -62,3 +78,17 @@ export default defineComponent({
     </div>
   </div>
 </template>
+<style lang="scss" scoped>
+
+a.router-link-active {
+  background: #eee;
+  padding: 5px 0px;
+  border-radius: 5px;
+}
+.dark a.router-link-active {
+  background: #1f2937;
+  padding: 5px 0px;
+  border-radius: 5px;
+}
+
+</style>
