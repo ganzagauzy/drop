@@ -1,6 +1,7 @@
 <template>
     <div>
         {{ message }}
+        {{ name }}
     </div>
 </template>
 
@@ -11,6 +12,11 @@
                 message:"hiii there"
             }
         },
+        computed: {
+            name() {
+               return this.$route.name
+            }
+        }
     }
 </script>
 

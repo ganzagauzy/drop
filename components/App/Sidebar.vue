@@ -35,7 +35,7 @@ export default defineComponent({
       <ul>
         <li>
           <Anchor
-            :to="{ name: 'dashboard' }"
+            :to="{ name: 'dashboard-id' }"
             class="group flex items-center mb-4 hover:no-underline"
           >
             <div
@@ -49,7 +49,7 @@ export default defineComponent({
               class="text-sm font-semibold capitalize"
               
             >
-              {{ $t('apps') }}
+              {{ $t('overview') }}
             </span>
           </Anchor>
         </li>
@@ -70,13 +70,13 @@ export default defineComponent({
               class="text-sm font-semibold capitalize"
               
             >
-              {{ $t('builds') }}
+              {{ $t('metrics') }}
             </span>
           </Anchor>
         </li>
         <li>
           <Anchor
-            :to="{ name: 'docs' }"
+            :to="{ name: 'dashboard-id-activities' }"
             class="group flex items-center mb-4 hover:no-underline"
           >
             <div
@@ -91,7 +91,7 @@ export default defineComponent({
               class="text-sm font-semibold capitalize"
               
             >
-              {{ $t('docs') }}
+              {{ $t('activities') }}
             </span>
           </Anchor>
         </li>
@@ -112,7 +112,7 @@ export default defineComponent({
               class="text-sm font-semibold capitalize"
               
             >
-              {{ $t('billing') }}
+              {{ $t('monitoring') }}
             </span>
           </Anchor>
         </li>

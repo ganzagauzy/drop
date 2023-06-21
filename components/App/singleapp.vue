@@ -1,12 +1,5 @@
 <template>
   <div>
-    <div>
-      <nuxt-link :to="{name:'dashboard'}">
-        <IconMdi:arrow-left-circle
-              :class="`text-2xl mb-1 `"
-            />
-      </nuxt-link>
-    </div>
     <div
       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4"
     >
@@ -40,9 +33,9 @@
               <div>
                 <div class="flex flex-wrap justify-between">
                   <div class="w-full sm:w-auto mb-4 sm:mb-0">Host Name</div>
-                  <div class="w-full sm:w-auto mb-4 sm:mb-0">Version</div>
+                  <div class="w-full sm:w-auto mb-4 sm:mb-0">Drop App</div>
                 </div>
-                <div class="my-2 flex flex-wrap justify-between text-green">
+                <div class="flex flex-wrap justify-between text-green">
                   <div class="w-full sm:w-auto mb-4 sm:mb-0">
                     <a
                       target="_blank"
@@ -114,10 +107,9 @@
                 </div>
                 <div class="my-10"></div>
                 <div class="mt-10">
-                  <!-- <button :to="{name:'dashboard-id-activities'}" class="p-1 rounded w-full bg-primary text-white">
+                  <button class="p-1 rounded w-full bg-primary text-white">
                     View All
-                  </button> -->
-                  <nuxt-link class="btn block text-center text-white bg-green w-full p-2 rounded" :to="{name:'dashboard-id-activities'}">All Activities</nuxt-link>
+                  </button>
                 </div>
               </div>
             </div>

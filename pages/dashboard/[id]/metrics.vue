@@ -1,6 +1,8 @@
 <script lang="ts" setup>
+import { AppActivity } from '~~/.nuxt/components';
+
 definePageMeta({
-  layout: 'dashboard',
+  layout: 'app',
 });
 const {id} = useRoute().params
 </script>
@@ -13,11 +15,8 @@ const {id} = useRoute().params
     
     <PageBody>
       <PageSection>
-        <DashboardSingleapp />
+        hii
       </PageSection>
-      <pageSection>
-        <!-- <DashboardHome /> -->
-      </pageSection>
     </PageBody>
   </PageWrapper>
 </template>

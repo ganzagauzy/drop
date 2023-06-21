@@ -8,6 +8,7 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     'Icon:ic:baselineArrowRightAlt': typeof import('~icons/ic/baseline-arrow-right-alt')['default']
+    'IconBi:arrowLeftCircle': typeof import('~icons/bi/arrow-left-circle')['default']
     'IconBi:arrowUpCircle': typeof import('~icons/bi/arrow-up-circle')['default']
     'IconBi:exclamationCircleFill': typeof import('~icons/bi/exclamation-circle-fill')['default']
     'IconClarity:appsCircle': typeof import('~icons/clarity/apps-circle')['default']
@@ -20,6 +21,7 @@ declare module '@vue/runtime-core' {
     'IconMdi:account': typeof import('~icons/mdi/account')['default']
     'IconMdi:arrowDown': typeof import('~icons/mdi/arrow-down')['default']
     'IconMdi:arrowDownCircle': typeof import('~icons/mdi/arrow-down-circle')['default']
+    'IconMdi:arrowLeftCircle': typeof import('~icons/mdi/arrow-left-circle')['default']
     'IconMdi:checkCircle': typeof import('~icons/mdi/check-circle')['default']
     'IconMdi:githubFace': typeof import('~icons/mdi/github-face')['default']
     'IconMdi:logout': typeof import('~icons/mdi/logout')['default']
@@ -33,9 +35,12 @@ declare module '@vue/runtime-core' {
     'IconUil:cog': typeof import('~icons/uil/cog')['default']
     'IconUil:computer': typeof import('~icons/uil/computer')['default']
     'IconUil:document': typeof import('~icons/uil/document')['default']
+    'IconUil:home': typeof import('~icons/uil/home')['default']
+    'IconUil:info': typeof import('~icons/uil/info')['default']
     'IconUil:machine': typeof import('~icons/uil/machine')['default']
     'IconUil:money': typeof import('~icons/uil/money')['default']
     'IconUil:moon': typeof import('~icons/uil/moon')['default']
+    'IconUil:overview': typeof import('~icons/uil/overview')['default']
     'IconUil:settings': typeof import('~icons/uil/settings')['default']
     'IconUil:sun': typeof import('~icons/uil/sun')['default']
     'IconUil:times': typeof import('~icons/uil/times')['default']
