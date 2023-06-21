@@ -32,6 +32,7 @@
           }"
           @click="handleOptionClick('Profile')"
         >
+        <IconMdi:account class="mr-2" />
           Profile
         </ListboxOption>
         <ListboxOption
@@ -40,6 +41,7 @@
           }"
           @click="handleOptionClick('Settings')"
         >
+        <IconMdi:settings class="mr-2" />
           Settings
         </ListboxOption>
         <ListboxOption
@@ -48,6 +50,7 @@
           }"
           @click="handleOptionClick('Logout')"
         >
+        <IconMdi:logout class="mr-2" />
           Logout
         </ListboxOption>
       </ListboxOptions>

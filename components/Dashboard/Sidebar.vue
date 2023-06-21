@@ -64,7 +64,7 @@ export default defineComponent({
             >
             <!-- group-hover:shadow group-hover:ring-slate-900/10 -->
             <!-- rounded-md ring-1 ring-slate-900/5 shadow-sm -->
-              <IconUil:apps class="text-xs" />
+              <IconUil:cog class="text-xs" />
             </div>
             <span
               class="text-sm font-semibold capitalize"
@@ -85,13 +85,34 @@ export default defineComponent({
             >
             <!-- group-hover:shadow group-hover:ring-slate-900/10 -->
             <!-- rounded-md ring-1 ring-slate-900/5 shadow-sm -->
-              <IconUil:apps class="text-xs" />
+              <IconUil:document class="text-xs" />
             </div>
             <span
               class="text-sm font-semibold capitalize"
               
             >
               {{ $t('docs') }}
+            </span>
+          </Anchor>
+        </li>
+        <li>
+          <Anchor
+            :to="{ name: 'docs' }"
+            class="group flex items-center mb-4 hover:no-underline"
+          >
+            <div
+              class="flex items-center mr-4 px-2 py-2    dark:ring-0 dark:shadow-none dark:group-hover:shadow-none dark:group-hover:highlight-white/10 group-hover:shadow-sky-200 dark:highlight-white/10"
+              
+            >
+            <!-- group-hover:shadow group-hover:ring-slate-900/10 -->
+            <!-- rounded-md ring-1 ring-slate-900/5 shadow-sm -->
+              <IconUil:wallet class="text-xs" />
+            </div>
+            <span
+              class="text-sm font-semibold capitalize"
+              
+            >
+              {{ $t('billing') }}
             </span>
           </Anchor>
         </li>

@@ -12,7 +12,6 @@ definePageMeta({
         <DashboardApps />
       </PageSection>
       <pageSection>
-        <DashboardHome />
       </pageSection>
     </PageBody>
   </PageWrapper>

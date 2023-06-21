@@ -1,18 +1,20 @@
 <template>
   <div>
-    <div class="flex justify-between mb-5">
-      <div class="flex-grow mr-2">
+    <div
+      class="flex justify-between flex-col-reverse mb-5 sm:flex-row sm:flex-wrap sm:flex-nowrap"
+    >
+      <div class="mr-2">
         <input
           type="text"
           placeholder="Search app ..."
-          class="w-100 py-2 px-4 border bg-transparent rounded lg:border-gray-900/10 dark:border-gray-50/[0.2]"
+          class="w-full py-2 px-4 border bg-transparent rounded lg:border-gray-900/10 dark:border-gray-50/[0.2]"
         />
       </div>
       <button
-      class="flex-shrink-0 px-4 bg-green-500 text-white rounded-md hover:bg-green-600"
+        class="mb-4 py-1 md:py-0 md:mb-0 flex-shrink-0 px-4 bg-green-500 text-white rounded-md hover:bg-green-600 mt-2 sm:mt-0"
         @click="newApp"
       >
-        + New App
+        <span>+ New App</span>
       </button>
     </div>
     <ul role="list" class="">
@@ -29,7 +31,9 @@
         /> -->
           <div class="min-w-0 flex-auto">
             <p class="text-sm font-bold leading-6 text-900">
-              <nuxt-link class="cursor" :to="`/dashboard/${person.name}`">{{ person.name }}</nuxt-link>
+              <nuxt-link class="cursor" :to="`/dashboard/${person.name}`">{{
+                person.name
+              }}</nuxt-link>
             </p>
             <p class="mt-1 truncate leading-5 text-500">
               {{ person.email }}
@@ -125,7 +129,7 @@ export default {
   methods: {
     newApp() {
       this.$router.push('/dashboard/start')
-    }
+    },
   },
 }
 </script>
