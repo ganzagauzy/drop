@@ -12,6 +12,10 @@ const props = defineProps({
     type: String,
     default: undefined,
   },
+  text2: {
+    type: String,
+    default: undefined,
+  },
   type: {
     type: String,
     default: 'primary',
@@ -67,11 +71,11 @@ const close = () => {
       leave-to="opacity-0"
     >
       <div
-        :class="`bg-gray-200 dark:bg-slate-800 bg-gradient-to-r shadow-white/50 dark:shadow-slate-900/50 px-6 py-6 rounded-md shadow-lg flex space-x-6 ${selectedStyle}`"
+        :class="`bg-gray-200 dark:bg-slate-800 bg-gradient-to-r shadow-white/50 dark:shadow-slate-900/50 px-6 py-1 rounded-md shadow-lg flex space-x-2 ${selectedStyle}`"
       >
         <div class="flex items-center justify-center">
           <slot name="icon">
-            <IconMdi:checkCircle
+            <IconMdi:arrow-down-circle
               v-if="selectedType === 'success'"
               :class="`text-2xl ${selectedTextStyle}`"
             />
@@ -79,7 +83,7 @@ const close = () => {
               v-if="selectedType === 'danger'"
               :class="`text-2xl ${selectedTextStyle}`"
             />
-            <icon-bi:exclamation-circle-fill
+            <icon-bi:arrow-up-circle
               v-if="selectedType === 'warning'"
               :class="`text-2xl ${selectedTextStyle}`"
             />
@@ -91,6 +95,8 @@ const close = () => {
           </div>
           <div class="text-gray-700 dark:text-gray-100">
             <slot name="title">{{ props.text }}</slot>
+            <br>
+            <slot name="title" ><p class="font-bold text-2xl">{{ props.text2 }}</p></slot>
           </div>
         </div>
         <div>

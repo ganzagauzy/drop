@@ -8,12 +8,17 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     'Icon:ic:baselineArrowRightAlt': typeof import('~icons/ic/baseline-arrow-right-alt')['default']
+    'IconBi:arrowUpCircle': typeof import('~icons/bi/arrow-up-circle')['default']
     'IconBi:exclamationCircleFill': typeof import('~icons/bi/exclamation-circle-fill')['default']
+    'IconClarity:appsCircle': typeof import('~icons/clarity/apps-circle')['default']
+    'IconClarity:homeCircle': typeof import('~icons/clarity/home-circle')['default']
     'IconClarity:timesCircleSolid': typeof import('~icons/clarity/times-circle-solid')['default']
     'IconClarity:timesLine': typeof import('~icons/clarity/times-line')['default']
     'IconFaSolid:ellipsisV': typeof import('~icons/fa-solid/ellipsis-v')['default']
     'IconIc:baselineContentCopy': typeof import('~icons/ic/baseline-content-copy')['default']
     'IconLa:language': typeof import('~icons/la/language')['default']
+    'IconMdi:arrowDown': typeof import('~icons/mdi/arrow-down')['default']
+    'IconMdi:arrowDownCircle': typeof import('~icons/mdi/arrow-down-circle')['default']
     'IconMdi:checkCircle': typeof import('~icons/mdi/check-circle')['default']
     'IconMdi:githubFace': typeof import('~icons/mdi/github-face')['default']
     'IconUil:angleDown': typeof import('~icons/uil/angle-down')['default']

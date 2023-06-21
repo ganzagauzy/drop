@@ -1,0 +1,23 @@
+<script lang="ts" setup>
+definePageMeta({
+  layout: 'dashboard',
+});
+const {id} = useRoute().params
+</script>
+
+<template>
+  <PageWrapper>
+    <!-- <PageHeader>
+      <PageTitle :text="$t('pages.dashboard-apps.index.title')" class="capitalize" />
+    </PageHeader> -->
+    
+    <PageBody>
+      <PageSection>
+        <DashboardSingleapp />
+      </PageSection>
+      <pageSection>
+        <!-- <DashboardHome /> -->
+      </pageSection>
+    </PageBody>
+  </PageWrapper>
+</template>

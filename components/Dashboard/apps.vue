@@ -9,7 +9,8 @@
         />
       </div>
       <button
-        class="flex-shrink-0 px-4 bg-green-500 text-white rounded-md hover:bg-green-600"
+      class="flex-shrink-0 px-4 bg-green-500 text-white rounded-md hover:bg-green-600"
+        @click="newApp"
       >
         + New App
       </button>
@@ -28,7 +29,7 @@
         /> -->
           <div class="min-w-0 flex-auto">
             <p class="text-sm font-bold leading-6 text-900">
-              {{ person.name }}
+              <nuxt-link class="cursor" :to="`/dashboard/${person.name}`">{{ person.name }}</nuxt-link>
             </p>
             <p class="mt-1 truncate leading-5 text-500">
               {{ person.email }}
@@ -119,6 +120,11 @@ export default {
           lastSeen: null,
         },
       ],
+    }
+  },
+  methods: {
+    newApp() {
+      this.$router.push('/dashboard/start')
     }
   },
 }

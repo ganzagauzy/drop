@@ -1,26 +1,3 @@
-<script lang="ts" setup>
-import {
-  Listbox,
-  ListboxButton,
-  ListboxLabel,
-  ListboxOptions,
-  ListboxOption,
-} from '@headlessui/vue'
-import { IThemeSettingOptions, availableThemes } from '~/utils/theme'
-
-// micro compiler
-const props = defineProps({
-  type: {
-    type: String,
-    default: 'dropdown-right-top',
-  },
-})
-
-// state
-// const themeSetting = useState<IThemeSettingOptions>('theme.setting')
-const currentStyle = toRef(props, 'type')
-</script>
-
 <template>
   <div class="flex items-center">
     <Listbox
@@ -37,7 +14,7 @@ const currentStyle = toRef(props, 'type')
         class="transition-colors duration-300"
       >
         <div class="flex">
-            <img
+          <img
             class="w-6 h-6 rounded-full"
             src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
             alt="Avatar of Jonathan Reinink"
@@ -53,6 +30,7 @@ const currentStyle = toRef(props, 'type')
           :class="{
             'py-2 px-2 flex items-center cursor-pointer': true,
           }"
+          @click="handleOptionClick('Profile')"
         >
           Profile
         </ListboxOption>
@@ -60,6 +38,7 @@ const currentStyle = toRef(props, 'type')
           :class="{
             'py-2 px-2 flex items-center cursor-pointer': true,
           }"
+          @click="handleOptionClick('Settings')"
         >
           Settings
         </ListboxOption>
@@ -67,12 +46,43 @@ const currentStyle = toRef(props, 'type')
           :class="{
             'py-2 px-2 flex items-center cursor-pointer': true,
           }"
+          @click="handleOptionClick('Logout')"
         >
           Logout
         </ListboxOption>
-        
       </ListboxOptions>
     </Listbox>
-   
   </div>
 </template>
+
+<script lang="ts" setup>
+import {
+  Listbox,
+  ListboxButton,
+  ListboxLabel,
+  ListboxOptions,
+  ListboxOption,
+} from '@headlessui/vue'
+import { defineProps, toRef } from 'vue'
+
+const props = defineProps({
+  type: {
+    type: String,
+    default: 'dropdown-right-top',
+  },
+})
+
+const currentStyle = toRef(props, 'type')
+const router = useRouter();
+// Define the method to handle the option click event
+const handleOptionClick = (option: string) => {
+  if (option === 'Profile') {
+    // console.log('Profile option clicked')
+  } else if (option === 'Settings') {
+    // console.log('Settings option clicked')
+  } else if (option === 'Logout') {
+    router.push('/');
+    // console.log('Logout option clicked')
+  }
+}
+</script>
