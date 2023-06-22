@@ -1,15 +1,12 @@
 <script lang="ts" setup>
 // import { useHead } from '@nuxtjs/composition-api';
 // import { useHead } from 'nuxt/dist/head/runtime'
-import { definePageMeta } from 'nuxt/dist/pages/runtime'
 import { useCounter } from '../stores/counter'
 import { useIdentity } from '../stores/identity'
 import { capitalize } from '../utils/str'
 import { useLang } from '../composables/useLang'
 
-function useHead(arg0: () => { title: string; meta: { name: string; content: string }[] }) {
-  throw new Error('Function not implemented.')
-}
+
 // composable
 const { t } = useLang()
 

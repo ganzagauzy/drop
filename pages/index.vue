@@ -58,7 +58,7 @@
 <script lang="ts" setup>
 // import { CloudArrowUpIcon, LockClosedIcon, ServerIcon } from '@heroicons/vue/20/solid'
   // layout
-  import { definePageMeta } from 'nuxt/dist/pages/runtime'
+  // import { definePageMeta } from 'nuxt/dist/pages/runtime'
   definePageMeta({
   layout: 'page',
 });

@@ -1,13 +1,7 @@
 <script lang="ts" setup>
 import { AppConfigInput } from '@nuxt/schema';
 import { computed } from 'vue';
-function useLang(): { t: any; } {
-  throw new Error('Function not implemented.');
-}
-
-function useAppConfig(): AppConfigInput {
-  throw new Error('Function not implemented.');
-}
+import { useLang } from '../../composables/useLang';
 
 
 export interface IMenuItem {
@@ -163,5 +157,3 @@ const menus = computed((): IMenuItem[] => [
     </template>
   </BuilderNavbar>
 </template>
-
-

@@ -1,8 +1,5 @@
 <script lang="ts" setup>
-import { definePageMeta } from 'nuxt/dist/pages/runtime'
-// function useRoute() {
-//   throw new Error('Function not implemented.');
-// }
+
 
 definePageMeta({
   layout: 'app',

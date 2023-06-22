@@ -37,6 +37,8 @@ declare module '@vue/runtime-core' {
     'IconUil:cog': typeof import('~icons/uil/cog')['default']
     'IconUil:computer': typeof import('~icons/uil/computer')['default']
     'IconUil:document': typeof import('~icons/uil/document')['default']
+    'IconUil:github': typeof import('~icons/uil/github')['default']
+    'IconUil:google': typeof import('~icons/uil/google')['default']
     'IconUil:graph': typeof import('~icons/uil/graph')['default']
     'IconUil:home': typeof import('~icons/uil/home')['default']
     'IconUil:info': typeof import('~icons/uil/info')['default']

@@ -13,51 +13,69 @@
         <div class="">
           <div class=" pb-10">
             <div class="w-full max-w-md">
-              <form class="px-8  pb-8 mb-4" @submit.prevent="submit">
+              <form class="px-8  pb-8 " @submit.prevent="submit">
                 <div class="text-center">
                   <h1 class="font-bold my-5">Create New Account !!</h1>
                   <p class="mb-5">Get your free Drop account now</p>
                 </div>
                 <div class="mb-4">
                   <label
-                    class="block text-700 text-sm font-bold mb-2"
+                    class="block text text-sm font-bold mb-2"
                     for="name"
-                    >Name</label
+                    >Names</label
                   >
                   <input
                     id="name"
                     v-model="name"
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-700 leading-tight focus:outline-none focus:shadow-outline"
+                    class="dark:text-black shadow appearance-none border rounded w-full py-2 px-3 text leading-tight focus:outline-none focus:shadow-outline"
                     type="text"
                     placeholder="Name"
+                    required
                   />
                 </div>
                 <div class="mb-4">
                   <label
-                    class="block text-700 text-sm font-bold mb-2"
-                    for="username"
-                    >Username</label
+                    class="block text text-sm font-bold mb-2"
+                    for="email"
+                    >Email</label
                   >
                   <input
-                    id="username"
-                    v-model="username"
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-700 leading-tight focus:outline-none focus:shadow-outline"
-                    type="text"
-                    placeholder="Username"
+                    id="email"
+                    v-model="email"
+                    class="dark:text-black shadow appearance-none border rounded w-full py-2 px-3 text leading-tight focus:outline-none focus:shadow-outline"
+                    type="email"
+                    placeholder="Email"
+                    required
                   />
                 </div>
                 <div class="mb-6">
                   <label
-                    class="block text-700 text-sm font-bold mb-2"
+                    class="block text text-sm font-bold mb-2"
                     for="password"
                     >Password</label
                   >
                   <input
                     id="password"
                     v-model="password"
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-700 leading-tight focus:outline-none focus:shadow-outline"
+                    class="dark:text-black shadow appearance-none border rounded w-full py-2 px-3 text leading-tight focus:outline-none focus:shadow-outline"
                     type="password"
                     placeholder="Password"
+                    required
+                  />
+                </div>
+                <div class="mb-6">
+                  <label
+                    class="block text text-sm font-bold mb-2"
+                    for="password"
+                    >Confirm Password</label
+                  >
+                  <input
+                    id="confpassword"
+                    v-model="confpassword"
+                    class="dark:text-black shadow appearance-none border rounded w-full py-2 px-3 text leading-tight focus:outline-none focus:shadow-outline"
+                    type="password"
+                    placeholder="Confirm Password"
+                    required
                   />
                 </div>
                 <div>
@@ -70,6 +88,17 @@
                 </div>
                 
               </form>
+              <div class="">
+                <div class="text-center">
+                  <p class="mb-2">Continue With</p>
+                  <div class="flex justify-center">
+                    
+                    <IconUil:github class="mr-5"/>
+                    <IconUil:google />
+                    <!-- <IconUil:github /> -->
+                  </div>
+                </div>
+              </div>
               <div class="py-5">
                   <p class="text-center">
                     Have an account ?
@@ -90,7 +119,7 @@
         checkbox: false,
         show1: false,
         password: '',
-        username: '',
+        email: '',
         name:"",
         bodyBackgroundColorClass: '',
       }
