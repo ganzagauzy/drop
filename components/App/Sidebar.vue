@@ -38,7 +38,7 @@ export default defineComponent({
       <ul>
         <li>
           <Anchor
-            :to="{ name: 'dashboard-id' }"
+            :to="{ name: 'dashboard-id-app' }"
             class="group flex items-center mb-4 hover:no-underline"
           >
             <div
@@ -58,7 +58,7 @@ export default defineComponent({
         </li>
         <li>
           <Anchor
-            :to="{ name: 'dashboard-id-monitoring' }"
+            :to="{ name: 'dashboard-id-app-monitoring' }"
             class="group flex items-center mb-4 hover:no-underline"
           >
             <div
@@ -79,7 +79,7 @@ export default defineComponent({
         </li>
         <li>
           <Anchor
-            :to="{ name: 'dashboard-id-metrics' }"
+            :to="{ name: 'dashboard-id-app-metrics' }"
             class="group flex items-center mb-4 hover:no-underline"
           >
             <div
@@ -100,7 +100,7 @@ export default defineComponent({
         </li>
         <li>
           <Anchor
-            :to="{ name: 'dashboard-id-activities' }"
+            :to="{ name: 'dashboard-id-app-activities' }"
             class="group flex items-center mb-4 hover:no-underline"
           >
             <div
@@ -121,7 +121,7 @@ export default defineComponent({
         </li>
         <li>
           <Anchor
-            :to="{ name: 'dashboard-id-settings' }"
+            :to="{ name: 'dashboard-id-app-settings' }"
             class="group flex items-center mb-4 hover:no-underline"
           >
             <div

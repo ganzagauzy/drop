@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <nuxt-link :to="{name:'dashboard'}">
+      <nuxt-link :to="{name:'dashboard-id'}">
         <IconMdi:arrow-left-circle
               :class="`text-2xl mb-1 `"
             />
@@ -117,7 +117,7 @@
                   <!-- <button :to="{name:'dashboard-id-activities'}" class="p-1 rounded w-full bg-primary text-white">
                     View All
                   </button> -->
-                  <nuxt-link class="btn block text-center text-white bg-green w-full p-2 rounded" :to="{name:'dashboard-id-activities'}">All Activities</nuxt-link>
+                  <nuxt-link class="btn block text-center text-white bg-green w-full p-2 rounded" :to="{name:'dashboard-id-app-activities'}">All Activities</nuxt-link>
                 </div>
               </div>
             </div>

@@ -1,23 +1,9 @@
 <script lang="ts" setup>
-
 definePageMeta({
   layout: 'app',
 });
-const {id} = useRoute().params
-</script>
-<script lang="ts">
-export default {
-  data() {
-    return {
-      message:"hii there"
-    }
-  },
-  computed: {
-    idP() {
-      return this.$route.name
-    }
-  },
-}
+const {id} = useRoute().params;
+
 </script>
 
 <template>
@@ -28,8 +14,11 @@ export default {
     
     <PageBody>
       <PageSection>
-        <AppActivity />
+        <DashboardSingleapp />
       </PageSection>
+      <pageSection>
+        <!-- <DashboardHome /> -->
+      </pageSection>
     </PageBody>
   </PageWrapper>
 </template>

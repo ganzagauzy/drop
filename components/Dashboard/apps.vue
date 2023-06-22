@@ -31,7 +31,7 @@
         /> -->
           <div class="min-w-0 flex-auto">
             <p class="text-sm font-bold leading-6 text-900">
-              <nuxt-link class="cursor" :to="`/dashboard/${person.name}`">{{
+              <nuxt-link class="cursor" :to="{name:'dashboard-id-app', params: { app: person.name }}">{{
                 person.name
               }}</nuxt-link>
             </p>

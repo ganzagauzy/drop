@@ -21,15 +21,16 @@
               <div class="mb-4">
                 <label
                   class="block text-700 text-sm font-bold mb-2"
-                  for="username"
-                  >Username</label
+                  for="email"
+                  >Email</label
                 >
                 <input
-                  id="username"
-                  v-model="username"
-                  class="shadow appearance-none border rounded w-full py-2 px-3 text-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="email"
+                  v-model="email"
+                  class="dark:text-black shadow appearance-none border rounded w-full py-2 px-3 text-700 leading-tight focus:outline-none focus:shadow-outline"
                   type="text"
-                  placeholder="Username"
+                  placeholder="Email"
+                  required
                 />
               </div>
               <div class="mb-6">
@@ -41,9 +42,10 @@
                 <input
                   id="password"
                   v-model="password"
-                  class="shadow appearance-none border rounded w-full py-2 px-3 text-700 leading-tight focus:outline-none focus:shadow-outline"
+                  class="dark:text-black shadow appearance-none border rounded w-full py-2 px-3 text-700 leading-tight focus:outline-none focus:shadow-outline"
                   type="password"
                   placeholder="Password"
+                  required
                 />
               </div>
               <div>
@@ -76,7 +78,7 @@ export default {
       checkbox: false,
       show1: false,
       password: '',
-      username: '',
+      email: '',
       bodyBackgroundColorClass: '',
     }
   },
@@ -99,8 +101,27 @@ export default {
     this.setCardBackgroundColor();
   },
   methods: {
-    submit() {
-      this.$router.push('/dashboard')
+    async submit() {
+      try {
+       
+       const response = await this.$axios.post('users/login', {
+         email: this.email,
+         password:this.password
+       })
+       if (!response || !response.data ) return false
+       else {
+        //  console.log("res", response);
+         localStorage.setItem("user_info", JSON.stringify(response));
+         this.$router.push(`/dashboard/${response.data.names}`)
+        //  this.$store.dispatch("setUserData", response);
+         
+         
+         
+       }
+     } catch (error) {
+      //  console.log(error);
+       
+     }
     },
     setCardBackgroundColor() {
       const bodyBackgroundColor = getComputedStyle(document.body).getPropertyValue('background-color');
