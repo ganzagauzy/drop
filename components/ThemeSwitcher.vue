@@ -6,7 +6,8 @@ import {
   ListboxOptions,
   ListboxOption,
 } from '@headlessui/vue'
-import { IThemeSettingOptions, availableThemes } from '~/utils/theme'
+import { toRef } from 'vue'
+import { IThemeSettingOptions, availableThemes } from '../utils/theme'
 
 // micro compiler
 const props = defineProps({

@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { TransitionRoot, TransitionChild } from '@headlessui/vue'
+import { ref, onMounted } from 'vue'
 
 // micro compiler
 const emit = defineEmits(['onClose'])

@@ -1,5 +1,7 @@
 <script lang="ts" setup>
 import { AppConfigInput } from '@nuxt/schema'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { useSticky } from '../../composables/useSticky'
 
 // state
 const app = useAppConfig() as AppConfigInput

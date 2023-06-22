@@ -29,7 +29,9 @@
             <IconMdi:github-face />
           </Anchor> -->
         </div>
+        
       </div>
+      
     </template>
     <template #options="{ toggleOptions }" >
       <ActionSheet  @on-close="toggleOptions(false)">
@@ -62,6 +64,7 @@
           @click.prevent="toggleOptions(false)"
         />
       </ActionSheet>
+      
     </template>
     <template #drawer>
       <slot name="drawer" />

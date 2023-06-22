@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { TransitionRoot, TransitionChild } from '@headlessui/vue'
+import { computed, reactive, ref } from 'vue'
 export type IStyles = 'primary' | 'success' | 'warning' | 'danger'
 
 // props

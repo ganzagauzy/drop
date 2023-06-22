@@ -6,10 +6,15 @@ import {
   TabPanels,
   TabPanel,
 } from '@headlessui/vue'
-// import {  } from 'vue'
-// import { definePageMeta,useLang,useScreen,useHead, } from "vue";
-import { capitalize } from '~/utils/str'
-import { Size } from '~/composables/useScreen'
+import { ref } from 'vue'
+import { definePageMeta } from 'nuxt/dist/pages/runtime'
+import { capitalize } from '../../utils/str'
+import { Size , useScreen} from '../../composables/useScreen'
+import { useLang } from '../../composables/useLang'
+
+function useHead(arg0: () => { title: string; meta: { name: string; content: string }[] }) {
+  throw new Error('Function not implemented.')
+}
 
 
 // composable

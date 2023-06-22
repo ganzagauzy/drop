@@ -1,4 +1,7 @@
+
 <script lang="ts">
+import { defineComponent, onMounted, ref } from "vue"
+
 export default defineComponent({
   props: {
     mode: {
@@ -55,7 +58,7 @@ export default defineComponent({
         </li>
         <li>
           <Anchor
-            :to="{ name: 'docs' }"
+            :to="{ name: 'dashboard-id-monitoring' }"
             class="group flex items-center mb-4 hover:no-underline"
           >
             <div
@@ -64,7 +67,28 @@ export default defineComponent({
             >
             <!-- group-hover:shadow group-hover:ring-slate-900/10 -->
             <!-- rounded-md ring-1 ring-slate-900/5 shadow-sm -->
-              <IconUil:cog class="text-xs" />
+              <IconUil:wallet class="text-xs" />
+            </div>
+            <span
+              class="text-sm font-semibold capitalize"
+              
+            >
+              {{ $t('monitoring') }}
+            </span>
+          </Anchor>
+        </li>
+        <li>
+          <Anchor
+            :to="{ name: 'dashboard-id-metrics' }"
+            class="group flex items-center mb-4 hover:no-underline"
+          >
+            <div
+              class="flex items-center mr-4 px-2 py-2    dark:ring-0 dark:shadow-none dark:group-hover:shadow-none dark:group-hover:highlight-white/10 group-hover:shadow-sky-200 dark:highlight-white/10"
+              
+            >
+            <!-- group-hover:shadow group-hover:ring-slate-900/10 -->
+            <!-- rounded-md ring-1 ring-slate-900/5 shadow-sm -->
+              <IconUil:chart class="text-xs" />
             </div>
             <span
               class="text-sm font-semibold capitalize"
@@ -97,7 +121,7 @@ export default defineComponent({
         </li>
         <li>
           <Anchor
-            :to="{ name: 'docs' }"
+            :to="{ name: 'dashboard-id-settings' }"
             class="group flex items-center mb-4 hover:no-underline"
           >
             <div
@@ -106,16 +130,17 @@ export default defineComponent({
             >
             <!-- group-hover:shadow group-hover:ring-slate-900/10 -->
             <!-- rounded-md ring-1 ring-slate-900/5 shadow-sm -->
-              <IconUil:wallet class="text-xs" />
+              <IconUil:cog class="text-xs" />
             </div>
             <span
               class="text-sm font-semibold capitalize"
               
             >
-              {{ $t('monitoring') }}
+              {{ $t('settings') }}
             </span>
           </Anchor>
         </li>
+        
       </ul>
     </div>
   </div>

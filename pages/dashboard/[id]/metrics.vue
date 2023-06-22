@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { AppActivity } from '~~/.nuxt/components';
+import { definePageMeta } from 'nuxt/dist/pages/runtime'
 
 definePageMeta({
   layout: 'app',

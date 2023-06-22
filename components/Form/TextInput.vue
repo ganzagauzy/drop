@@ -1,4 +1,8 @@
+
+
 <script lang="ts" setup>
+import { computed, reactive, useSlots } from "vue"
+
 // compiler macro
 const props = defineProps({
   modelValue: {
@@ -95,3 +99,4 @@ const selectedFontSizeStyle = computed(
     </div>
   </div>
 </template>
+

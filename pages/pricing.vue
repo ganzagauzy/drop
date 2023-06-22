@@ -1,32 +1,6 @@
-<!-- <script lang="ts" setup>
-import { capitalize } from '../utils/str'
-import { useCounter } from '../stores/counter'
-import { useIdentity } from '../stores/identity'
-import { useLang } from '../composables/useLang';
 
-composable
-const { t } = useLang()
-
-compiler macro
-definePageMeta({
-  layout: 'page',
-})
-useHead(() => ({
-  title: capitalize(t('pages.test.title')),
-  meta: [
-    {
-      name: 'description',
-      content: t('pages.test.description'),
-    },
-  ],
-}))
-
-
-
-const counter = useCounter()
-const identity = useIdentity()
-</script> -->
 <script lang="ts">
+import { definePageMeta } from 'nuxt/dist/pages/runtime'
 definePageMeta({
   layout: 'page',
 })

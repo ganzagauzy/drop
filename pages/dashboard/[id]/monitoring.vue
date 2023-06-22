@@ -1,24 +1,13 @@
 <script lang="ts" setup>
 import { definePageMeta } from 'nuxt/dist/pages/runtime'
+// function useRoute() {
+//   throw new Error('Function not implemented.');
+// }
 
 definePageMeta({
   layout: 'app',
 });
 const {id} = useRoute().params
-</script>
-<script lang="ts">
-export default {
-  data() {
-    return {
-      message:"hii there"
-    }
-  },
-  computed: {
-    idP() {
-      return this.$route.name
-    }
-  },
-}
 </script>
 
 <template>
@@ -29,8 +18,10 @@ export default {
     
     <PageBody>
       <PageSection>
-        <AppActivity />
+        hii
       </PageSection>
     </PageBody>
   </PageWrapper>
 </template>
+
+

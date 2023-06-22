@@ -1,4 +1,7 @@
+
 <script lang="ts" setup>
+import { computed, reactive } from "vue"
+
 const props = defineProps({
   text: {
     type: String,

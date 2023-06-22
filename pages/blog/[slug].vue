@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { definePageMeta } from 'nuxt/dist/pages/runtime'
 definePageMeta({
   layout: 'page',
 })

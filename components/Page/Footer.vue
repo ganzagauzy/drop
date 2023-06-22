@@ -1,6 +1,11 @@
 <script lang="ts" setup>
 import { AppConfigInput } from '@nuxt/schema'
-import p from './../../package.json'
+// import p from './../../package.json'
+function useAppConfig(): AppConfigInput {
+  throw new Error('Function not implemented.')
+}
+
+
 const app = useAppConfig() as AppConfigInput
 </script>
 
@@ -35,3 +40,5 @@ const app = useAppConfig() as AppConfigInput
     </section>
   </footer>
 </template>
+
+

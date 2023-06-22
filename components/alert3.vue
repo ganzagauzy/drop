@@ -50,11 +50,16 @@ const selectedType = computed<IStyles>((): IStyles => {
 const selectedStyle = computed(() => styles[selectedType.value])
 const selectedTextStyle = computed(() => textStyles[selectedType.value])
 
+const {id} = useRoute().params
 // actions
 const close = () => {
   isDestroyed.value = true
 }
+const deleteApp = () => {
+  
+}
 </script>
+
 
 <template>
   <TransitionRoot :show="!isDestroyed" appear>
@@ -70,7 +75,7 @@ const close = () => {
       <div
         :class="`bg-gray-200 dark:bg-slate-800 bg-gradient-to-r shadow-white/50 dark:shadow-slate-900/50 px-6 py-6 rounded-md shadow-lg flex space-x-6 ${selectedStyle}`"
       >
-        <div class="flex items-center justify-center">
+        <!-- <div class="flex items-center justify-center">
           <slot name="icon">
             <IconMdi:checkCircle
               v-if="selectedType === 'success'"
@@ -78,20 +83,23 @@ const close = () => {
             />
             <icon-clarity:times-circle-solid
               v-if="selectedType === 'danger'"
-              :class="`text-2xl ${selectedTextStyle}`"
+              :class="`text-2xl ${selectedTextStyle} mb-10`"
             />
             <icon-bi:exclamation-circle-fill
               v-if="selectedType === 'warning'"
               :class="`text-2xl ${selectedTextStyle}`"
             />
           </slot>
-        </div>
+        </div> -->
         <div class="flex-1">
           <div :class="`font-bold text-lg mb-0.5 ${selectedTextStyle}`">
             <slot name="title">{{ props.title }}</slot>
           </div>
           <div class="text-gray-700 dark:text-gray-100">
             <slot name="title">{{ props.text }}</slot>
+          </div>
+          <div>
+            <button class="rounded bg-red text-white p-2 my-4" @click="deleteApp">Delete App</button>
           </div>
         </div>
         <div>
@@ -106,3 +114,11 @@ const close = () => {
     </TransitionChild>
   </TransitionRoot>
 </template>
+
+function useRoute() {
+  throw new Error('Function not implemented.')
+}
+
+function useRoute() {
+  throw new Error('Function not implemented.')
+}

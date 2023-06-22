@@ -6,7 +6,8 @@ import {
   ListboxOptions,
   ListboxOption,
 } from '@headlessui/vue'
-import { availableLocales } from '~/utils/lang'
+import { toRef } from 'vue'
+import { availableLocales } from '../utils/lang'
 
 // micro compiler
 const props = defineProps({
@@ -80,3 +81,15 @@ const localeSetting = useState<string>('locale.setting')
     </select>
   </div>
 </template>
+
+function useState<T>(arg0: string) {
+  throw new Error('Function not implemented.')
+}
+
+function useState<T>(arg0: string) {
+  throw new Error('Function not implemented.')
+}
+
+function useState<T>(arg0: string) {
+  throw new Error('Function not implemented.')
+}

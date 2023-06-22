@@ -1,4 +1,7 @@
+
+
 <script lang="ts" setup>
+import { computed, resolveComponent } from "vue"
 // components
 const PageWrapper = resolveComponent('PageWrapper')
 

@@ -1,24 +1,12 @@
 <script lang="ts" setup>
-import { definePageMeta } from 'nuxt/dist/pages/runtime'
 
 definePageMeta({
   layout: 'app',
 });
 const {id} = useRoute().params
 </script>
-<script lang="ts">
-export default {
-  data() {
-    return {
-      message:"hii there"
-    }
-  },
-  computed: {
-    idP() {
-      return this.$route.name
-    }
-  },
-}
+<script>
+
 </script>
 
 <template>
@@ -28,9 +16,17 @@ export default {
     </PageHeader> -->
     
     <PageBody>
-      <PageSection>
-        <AppActivity />
+      <PageSection class="alert">
+        <alert-3 
+        type="danger"
+        :title="`Delete your app`"
+          :text="`Once you delete your app, you will lose all data associated with it.`"
+          class="mb-4 text-green"
+         />
       </PageSection>
     </PageBody>
   </PageWrapper>
 </template>
+<style lang="scss" scoped>
+
+</style>
