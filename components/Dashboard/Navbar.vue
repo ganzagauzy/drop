@@ -3,7 +3,7 @@
     <template #menu>
       <div class="relative hidden lg:flex items-center ml-auto">
         <div class="flex items-center justify-center">
-          
+          <button  class="bg-transparent border dark:border-gray-700  rounded mr-5 p-2" @click="dashboard">Dashboard</button>
           <DashboardDropdown />
           
         </div>
@@ -32,13 +32,17 @@
         <ActionSheetBody>
           
           <ActionSheetHeader text="Menu"  />
-          <DashboardDropdown class="ml-35" />
+          <DashboardDropdown class="flex flex-end " />
+          <button class="bg-green text-white rounded p-2 flex flex-end mt-5" @click="dashboard">Dashboard</button>
           <div class="mt-6 text-sm font-bold capitalize">
             {{ $t('components.theme_switcher.change_theme') }}
           </div>
           
           <div class="mt-2">
             <ThemeSwitcher type="select-box" />
+          </div>
+          <div class="mt-2">
+            <DashboardDropdown class="" />
           </div>
           
           <!-- <div class="mt-6 text-sm font-bold capitalize">
@@ -68,3 +72,20 @@
     </template>
   </BuilderNavbar>
 </template>
+<script>
+export default {
+  methods:{
+    dashboard() {
+    const userInfo = localStorage.getItem('user_info')
+
+        if (userInfo) {
+          const parsedUserInfo = JSON.parse(userInfo)
+          const name= `${parsedUserInfo.data.names}`
+          this.$router.push(`/dashboard/${name}`)
+        } else {
+        //   console.log('No user info found in local storage')
+        }
+  }
+  }
+}
+</script>

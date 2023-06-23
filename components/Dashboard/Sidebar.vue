@@ -28,6 +28,10 @@ export default defineComponent({
       ] as { value: string; label: string }[],
     }
   },
+  created() {
+    this.getOrgs();
+    this.getUser();
+  },
   methods: {
     handleSelection() {
       // console.log("selected", this.selectedOption);
@@ -35,8 +39,10 @@ export default defineComponent({
       
     },
     createOrganisation() {
-      this.$router.push('/dashboard/organisation')
-    }
+      this.$router.push('/organisation')
+    },
+    getOrgs() {},
+    getUser() {},
   }
 })
 </script>
@@ -96,7 +102,7 @@ export default defineComponent({
         </li>
         <li>
           <Anchor
-            :to="{ name: 'docs' }"
+            :to="{ name: 'dashboard-id-builds' }"
             class="group flex items-center mb-4 hover:no-underline"
           >
             <div
@@ -108,6 +114,41 @@ export default defineComponent({
             </div>
             <span class="text-sm font-semibold capitalize">
               {{ $t('builds') }}
+            </span>
+          </Anchor>
+        </li>
+        
+        <li>
+          <Anchor
+            :to="{ name: 'dashboard-id-billing' }"
+            class="group flex items-center mb-4 hover:no-underline"
+          >
+            <div
+              class="flex items-center mr-4 px-2 py-2 dark:ring-0 dark:shadow-none dark:group-hover:shadow-none dark:group-hover:highlight-white/10 group-hover:shadow-sky-200 dark:highlight-white/10"
+            >
+              <!-- group-hover:shadow group-hover:ring-slate-900/10 -->
+              <!-- rounded-md ring-1 ring-slate-900/5 shadow-sm -->
+              <IconUil:wallet class="text-xs" />
+            </div>
+            <span class="text-sm font-semibold capitalize">
+              {{ $t('billing') }}
+            </span>
+          </Anchor>
+        </li>
+        <li>
+          <Anchor
+            :to="{ name: 'dashboard-id-team' }"
+            class="group flex items-center mb-4 hover:no-underline"
+          >
+            <div
+              class="flex items-center mr-4 px-2 py-2 dark:ring-0 dark:shadow-none dark:group-hover:shadow-none dark:group-hover:highlight-white/10 group-hover:shadow-sky-200 dark:highlight-white/10"
+            >
+              <!-- group-hover:shadow group-hover:ring-slate-900/10 -->
+              <!-- rounded-md ring-1 ring-slate-900/5 shadow-sm -->
+              <IconUil:apps class="text-xs" />
+            </div>
+            <span class="text-sm font-semibold capitalize">
+              {{ $t('team') }}
             </span>
           </Anchor>
         </li>
@@ -130,7 +171,7 @@ export default defineComponent({
         </li>
         <li>
           <Anchor
-            :to="{ name: 'docs' }"
+            :to="{ name: 'dashboard-id-settings' }"
             class="group flex items-center mb-4 hover:no-underline"
           >
             <div
@@ -138,10 +179,10 @@ export default defineComponent({
             >
               <!-- group-hover:shadow group-hover:ring-slate-900/10 -->
               <!-- rounded-md ring-1 ring-slate-900/5 shadow-sm -->
-              <IconUil:wallet class="text-xs" />
+              <IconUil:cog class="text-xs" />
             </div>
             <span class="text-sm font-semibold capitalize">
-              {{ $t('billing') }}
+              {{ $t('settings') }}
             </span>
           </Anchor>
         </li>

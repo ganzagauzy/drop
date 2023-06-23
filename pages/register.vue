@@ -77,8 +77,10 @@
                 <button
                   type="submit"
                   class="flex w-full justify-center rounded-md bg-green-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
+                  :class="{ 'cursor-not-allowed opacity-50': isLoading }"
+                  :disabled="isLoading"
                 >
-                  Register
+                  {{ isLoading ? 'Loading...' : 'Register' }}
                 </button>
               </div>
             </form>
@@ -86,8 +88,8 @@
               <div class="text-center">
                 <p class="mb-2">Continue With</p>
                 <div class="flex justify-center">
-                  <IconUil:github class="mr-5" />
-                  <IconUil:google />
+                  <IconUil:github class="mr-5 cursor-pointer" />
+                  <IconUil:google class="cursor-pointer"/>
                   <!-- <IconUil:github /> -->
                 </div>
               </div>
@@ -117,6 +119,7 @@ export default {
       email: '',
       name: '',
       bodyBackgroundColorClass: '',
+      isLoading: false,
     }
   },
   computed: {
@@ -144,7 +147,7 @@ export default {
   methods: {
     async submit() {
       try {
-       
+       this.isLoading = true
        const response = await this.$axios.post('users/signup', {
          names:this.name,
          email: this.email,
@@ -154,13 +157,16 @@ export default {
        })
        if (!response || !response.data ) return false
        else {
-         console.log("res", response);
+        //  console.log("res", response);
          this.$router.push('/login')
          
        }
      } catch (error) {
-       console.log(error);
+      //  console.log(error);
        
+     }
+     finally {
+      this.isLoading = false
      }
       
     },

@@ -12,15 +12,51 @@
       </div>
       <button
         class="mb-4 py-1 md:py-0 md:mb-0 flex-shrink-0 px-4 bg-green-500 text-white rounded-md hover:bg-green-600 mt-2 sm:mt-0"
-        @click="newApp"
+        @click="showDialog = true"
       >
         <span>+ New App</span>
       </button>
+      <!-- Dialog overlay -->
+      <div
+        v-if="showDialog"
+        class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70"
+      >
+        <!-- Dialog content -->
+        <div class="bg-white dark:bg-gray-900 rounded p-8 max-w-md">
+          <div class="header flex justify-between">
+            <p>Create App</p>
+            <button
+            class="text-red-500 hover:text-gray-700 ml-2"
+            @click="closeDialog"
+          >
+            Close
+          </button>
+          </div>
+          
+          <div class="div py-3"></div>
+          <form action="" @submit.prevent="submitForm">
+            <label for="">Name</label>
+            <input
+            v-model="name"
+            class="w-full px-4 py-2 dark:bg-transparent border border-gray-300 dark:border-gray-700 rounded mb-4"
+            placeholder="Name"
+            required
+          />
+          <button
+            class="bg-green-500 text-white px-4 mt-1 py-2 rounded hover:bg-green-600"
+            type="submit"
+          >
+            Create
+          </button>
+          
+          </form>
+        </div>
+      </div>
     </div>
     <ul role="list" class="">
       <li
-        v-for="person in people"
-        :key="person.email"
+        v-for="(app,i) in newArray"
+        :key="i"
         class="flex justify-between gap-x-6 py-5 mb-5 p-4 rounded shadow border lg:border-gray-900/10 dark:border-gray-50/[0.2]"
       >
         <div class="flex gap-x-4">
@@ -31,29 +67,26 @@
         /> -->
           <div class="min-w-0 flex-auto">
             <p class="text-sm font-bold leading-6 text-900">
-              <nuxt-link class="cursor" :to="{name:'dashboard-id-app', params: { app: person.name }}">{{
-                person.name
-              }}</nuxt-link>
+              <nuxt-link
+                class="cursor"
+                :to="{ name: 'dashboard-id-app', params: { app: app.id } }"
+                >{{ app.name }}</nuxt-link
+              >
             </p>
             <p class="mt-1 truncate leading-5 text-500">
-              {{ person.email }}
+              {{ app.org_id }}
             </p>
           </div>
         </div>
-        <div class="hidden sm:flex sm:flex-col sm:items-end">
+        <div  class="hidden sm:flex sm:flex-col sm:items-end" >
           <p class="text-sm leading-6 text-900">V3</p>
-          <p v-if="person.lastSeen" class="mt-1 leading-5 text-500">
-            <time :datetime="person.lastSeenDateTime">{{
-              person.lastSeen
+          <p  class="mt-1 leading-5 text-500" >
+            <time :datetime="app.created_at">{{
+              app.created_at
             }}</time>
             . shared
           </p>
-          <div v-else class="mt-1 flex items-center gap-x-1.5">
-            <div class="flex-none rounded-full bg-emerald-500/20 p-1">
-              <div class="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-            </div>
-            <p class="leading-5 text-500">Now</p>
-          </div>
+          
         </div>
       </li>
     </ul>
@@ -70,6 +103,11 @@
 export default {
   data() {
     return {
+      showDialog: false,
+      isLoading:false,
+      name: '',
+      dataArray: [],
+
       people: [
         {
           name: 'Paypack',
@@ -124,11 +162,98 @@ export default {
           lastSeen: null,
         },
       ],
+      newArray:[]
     }
+  },
+  created() {
+    this.getApps();
   },
   methods: {
     newApp() {
       this.$router.push('/dashboard/start')
+    },
+    async submitForm() {
+      try {
+        this.isLoading = true
+        let token ="";
+        let refrToken ="";
+        const userInfo = localStorage.getItem('user_info')
+
+        if (userInfo) {
+          const parsedUserInfo = JSON.parse(userInfo)
+          token= `Bearer ${parsedUserInfo.data.token.access}`
+          refrToken= `Bearer ${parsedUserInfo.data.token.refresh}`
+
+        //   console.log("parse",parsedUserInfo.data.token.access)
+          // Use the parsedUserInfo object as needed
+        } else {
+        //   console.log('No user info found in local storage')
+        }
+       
+        const response = await this.$axios.post(
+          'apps',
+          {
+            name: this.name,
+            org_id:2
+          },
+          {
+            headers: {
+              Authorization: refrToken || token,
+            },
+          }
+        )
+        if (!response || !response.data) return false
+        else {
+          // console.log("Res", response);
+          
+        }
+      } catch (error) {
+        //  console.log(error);
+      } finally {
+        this.isLoading = false;
+        this.closeDialog();
+      }
+    },
+    async getApps() {
+      try {
+        this.isLoading = true
+        let token ="";
+        let refrToken =""
+        const userInfo = localStorage.getItem('user_info')
+
+        if (userInfo) {
+          const parsedUserInfo = JSON.parse(userInfo)
+          token= `Bearer ${parsedUserInfo.data.token.access}`
+          refrToken= `Bearer ${parsedUserInfo.data.token.refresh}`
+
+        //   console.log("parse",parsedUserInfo.data.token.access)
+          // Use the parsedUserInfo object as needed
+        } else {
+        //   console.log('No user info found in local storage')
+        }
+        const response = await this.$axios.get('apps/list',{
+            headers: {
+              Authorization: refrToken || token,
+            },
+          })
+        if (!response || !response.data) return false
+        else {
+          let array = [];
+          array = response.data.apps
+          this.newArray = response.data.apps;
+          console.log("Apps", this.newArray);
+          
+        }
+      } catch (error) {
+        //  console.log(error);
+      } finally {
+        this.isLoading = false
+      }
+      
+    },
+    closeDialog() {
+      this.showDialog = false
+      this.name = ''
     },
   },
 }

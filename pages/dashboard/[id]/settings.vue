@@ -9,7 +9,7 @@ definePageMeta({
     
     <PageBody>
       <PageSection>
-        hiii
+        settings
       </PageSection>
       <pageSection>
       </pageSection>
