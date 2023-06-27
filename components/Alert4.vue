@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { TransitionRoot, TransitionChild } from '@headlessui/vue'
-import { computed, reactive, ref } from 'vue'
+import { computed, reactive, ref, defineComponent } from 'vue'
+import axios from 'axios'
 export type IStyles = 'primary' | 'success' | 'warning' | 'danger'
 
 // props
@@ -49,6 +50,19 @@ const selectedType = computed<IStyles>((): IStyles => {
 })
 const selectedStyle = computed(() => styles[selectedType.value])
 const selectedTextStyle = computed(() => textStyles[selectedType.value])
+const isTrue = computed<boolean>(() => {
+  let boolean = false
+  const org = localStorage.getItem('current_org')
+  if (org) {
+    const kind = JSON.parse(org)
+    if (kind.kind === 'PERSONAL') {
+      boolean = true
+    } else {
+      boolean = false
+    }
+  }
+  return boolean
+})
 
 const { id } = useRoute().params
 // actions
@@ -60,48 +74,42 @@ const close = () => {
 <script lang="ts">
 export default {
   data() {
-    return {
-      isLoading: false,
-    }
-  },
-  computed: {
-    app() {
-      return this.$route.params.app
-    },
+    return {}
   },
   methods: {
     async deleteApp() {
       try {
-        this.isLoading =true
         let token = ''
         let refrToken = ''
         let id = ''
+
+        const org = localStorage.getItem('current_org')
+        if (org) {
+          const kind = JSON.parse(org)
+          id = kind.id
+        }
+
         const userInfo = localStorage.getItem('user_info')
 
         if (userInfo) {
           const parsedUserInfo = JSON.parse(userInfo)
           token = `Bearer ${parsedUserInfo.data.token.access}`
           refrToken = `Bearer ${parsedUserInfo.data.token.refresh}`
-          id = parsedUserInfo.data.names
         } else {
           //   console.log('No user info found in local storage')
         }
-        const response = await this.$axios.delete(`apps/${this.app}`, {
+        const response = await this.$axios.delete(`orgs/${id}`, {
           headers: {
             Authorization: refrToken || token,
           },
         })
-        if (!response || !response.data)
-          return this.$router.push(`/dashboard/${id}`)
+        if (!response || !response.data) return this.$router.push(`/dashboard/${1}`)
         else {
-          // this.$router.push(`/dashboard/${1}`)
+          this.$router.push(`/dashboard/${1}`)
         }
       } catch (error) {
         // console.error('Delete failed:', error)
         // Handle the error case
-      }
-      finally {
-        this.isLoading =false
       }
     },
   },
@@ -147,23 +155,16 @@ export default {
           </div>
           <div>
             <button
-              class="rounded bg-red text-white p-2 my-4"
-              :disabled="isLoading"
-              :class="{ 'cursor-not-allowed opacity-50': isLoading }"
+              class="mt-2 flex justify-center rounded-md bg-red px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+              :class="{ 'cursor-not-allowed opacity-50': isTrue }"
+              :disabled="isTrue"
               @click="deleteApp"
             >
-              {{ isLoading ? 'Loading...' : 'Delete App' }}
+              {{ isTrue ? 'Loading...' : 'Delete Organisation' }}
             </button>
           </div>
         </div>
-        <div>
-          <!-- <button
-            class="text-slate-600 hover:text-red-500 dark:text-gray-400 font-bold"
-            @click="close"
-          >
-            <icon-clarity:times-line />
-          </button> -->
-        </div>
+        <div></div>
       </div>
     </TransitionChild>
   </TransitionRoot>

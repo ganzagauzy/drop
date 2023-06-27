@@ -21,27 +21,88 @@ export default defineComponent({
   },
   data() {
     return {
-      selectedOption: '' as string,
-      options: [
-        { value: 'option1', label: 'Option 1' },
-        { value: 'option2', label: 'Option 2' },
-      ] as { value: string; label: string }[],
+      isLoading:false,
+      userName:"",
+      selectedOption: "" as string,
+      organisations:[
+        {name:"",id:""}
+      ],
+      // options: [
+      //   { value: 'option1', label: 'Option 1' },
+      //   { value: 'option2', label: 'Option 2' },
+      // ] as { value: string; label: string }[],
     }
+  },
+  computed:{
   },
   created() {
     this.getOrgs();
     this.getUser();
+    this.currentOrg();
   },
   methods: {
+    currentOrg() {
+      if(this.selectedOption === "") {
+        const organisation = localStorage.getItem('current_org')
+        if (organisation) {
+          const parsedOrganisation = JSON.parse(organisation)
+          this.selectedOption = parsedOrganisation.id;
+          
+        } else {
+        //   console.log('No user info found in local storage')
+        }
+      }
+    },
     handleSelection() {
       // console.log("selected", this.selectedOption);
-      this.$router.push(`/dashboard/${this.selectedOption}`)
+      localStorage.removeItem('current_org')
+      const foundItem = this.organisations.find(item => item.id === this.selectedOption);
+      // console.log("current",foundItem);
+      if(foundItem) {
+        localStorage.setItem('current_org', JSON.stringify(foundItem))
+        this.$router.push(`/dashboard/${foundItem.name}`)
+      }
+     
+      
+      
       
     },
     createOrganisation() {
       this.$router.push('/organisation')
     },
-    getOrgs() {},
+    async getOrgs() {
+      try {
+        this.isLoading = true
+        let token ="";
+        let refrToken =""
+        const userInfo = localStorage.getItem('user_info')
+
+        if (userInfo) {
+          const parsedUserInfo = JSON.parse(userInfo)
+          this.userName = parsedUserInfo.data.names
+          token= `Bearer ${parsedUserInfo.data.token.access}`
+          refrToken= `Bearer ${parsedUserInfo.data.token.refresh}`
+        } else {
+        //   console.log('No user info found in local storage')
+        }
+        const response = await this.$axios.get('orgs/list',{
+            headers: {
+              Authorization: refrToken || token,
+            },
+          })
+        if (!response || !response.data) return false
+        else {
+          // console.log("res", response.data.orgs);
+          
+          this.organisations = response.data.orgs
+        }
+      } catch (error) {
+        //  console.log(error);
+      } finally {
+        this.isLoading = false
+      }
+      
+    },
     getUser() {},
   }
 })
@@ -59,21 +120,23 @@ export default defineComponent({
   >
     <div class="flex-1 overflow-y-auto pl-4 lg:pl-0 pr-4 py-10">
       <div class="mb-4">
+        <label for=""><strong>Organisation</strong></label>
         <div class="flex items-center mb-3">
+          
           <select
             v-model="selectedOption"
-            class="bg-transparent px-4 py-2 border border-gray-300 dark:border-gray-600 rounded focus:outline-none focus:ring-0 w-full focus:ring-green-500"
+            class="bg-white dark:bg-gray-800 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded focus:outline-none focus:ring-0 w-full focus:ring-green-500"
             @change="handleSelection"
           >
-            <option value="">Select Organization</option>
+            <option v-if="selectedOption == ''" value="">Select Organisation</option>
             <option
-              v-for="option in options"
-              :key="option.value"
-              :value="option.value"
-              :style="{ backgroundColor: option.value === selectedOption ? '#f3f3f3' : 'transparent' }"
+              v-for="option in organisations"
+              :key="option.id"
+              :value="option.id"
+              :style="{ backgroundColor: option.id === selectedOption ? 'green' : 'transparent' }"
               class="w-50"
             >
-              {{ option.label }}
+              {{ option.name }}
             </option>
           </select>
         </div>

@@ -5,8 +5,14 @@ definePageMeta({
 });
 const {id} = useRoute().params
 </script>
-<script>
-
+<script lang="ts">
+export default {
+  computed: {
+    app() {
+      return this.$route.params.app
+    }
+  }
+}
 </script>
 
 <template>
@@ -17,12 +23,14 @@ const {id} = useRoute().params
     
     <PageBody>
       <PageSection class="alert">
+        {{ app }}
         <alert-3 
         type="danger"
         :title="`Delete your app`"
           :text="`Once you delete your app, you will lose all data associated with it.`"
           class="mb-4 text-green"
          />
+         
       </PageSection>
     </PageBody>
   </PageWrapper>

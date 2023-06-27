@@ -1,5 +1,12 @@
 <template>
   <div>
+    <div>
+      <nuxt-link :to="{name:'dashboard-id'}">
+        <IconMdi:arrow-left-circle
+              :class="`text-2xl mb-1 `"
+            />
+      </nuxt-link>
+    </div>
     <div
       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4"
     >
@@ -41,10 +48,12 @@
                       target="_blank"
                       href="https://drop-front.fly.dev/"
                       class=""
-                      >drop.fly.dev</a
+                      >{{ application.name }}</a
                     >
                   </div>
-                  <div class="w-full sm:w-auto mb-4 sm:mb-0">V3</div>
+                  <div class="w-full sm:w-auto mb-4 sm:mb-0">
+                    {{ application.org_id }}
+                  </div>
                 </div>
               </div>
               <div class="my-4">
@@ -130,6 +139,12 @@
 export default {
   data() {
     return {
+      isLoading:false,
+      application:{
+        name:"",
+        org_id:"",
+        id:""
+      },
       message: 'Average Data In (1h)',
       cards: [
         { id: 1 /* Card data */ },
@@ -170,7 +185,49 @@ export default {
     id() {
       return this.$route.params.id
     },
+    app() {
+      return this.$route.params.app
+    },
   },
+  created() {
+    this.getApp();
+  },
+  methods: {
+    async getApp() {
+      try {
+        this.isLoading = true
+        let token ="";
+        let refrToken =""
+        const userInfo = localStorage.getItem('user_info')
+
+        if (userInfo) {
+          const parsedUserInfo = JSON.parse(userInfo)
+          token= `Bearer ${parsedUserInfo.data.token.access}`
+          refrToken= `Bearer ${parsedUserInfo.data.token.refresh}`
+
+        //   console.log("parse",parsedUserInfo.data.token.access)
+          // Use the parsedUserInfo object as needed
+        } else {
+        //   console.log('No user info found in local storage')
+        }
+        const response = await this.$axios.get(`apps/${this.app}`,{
+            headers: {
+              Authorization: refrToken || token,
+            },
+          })
+        if (!response || !response.data) return false
+        else {
+          console.log("res", response.data);
+          
+          this.application = response.data
+        }
+      } catch (error) {
+        //  console.log(error);
+      } finally {
+        this.isLoading = false
+      }
+    }
+  }
 }
 </script>
 

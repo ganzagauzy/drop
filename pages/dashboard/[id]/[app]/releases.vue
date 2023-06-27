@@ -1,12 +1,9 @@
 <script lang="ts" setup>
 
 definePageMeta({
-  layout: 'dashboard',
+  layout: 'app',
 });
 const {id} = useRoute().params
-</script>
-<script>
-
 </script>
 
 <template>
@@ -16,17 +13,9 @@ const {id} = useRoute().params
     </PageHeader> -->
     
     <PageBody>
-      <PageSection class="alert">
-        <alert-4
-        type="danger"
-        :title="`Delete Organisation`"
-          :text="`You may delete your organization. This cannot be undone.`"
-          class="mb-4 text-green"
-         />
+      <PageSection>
+        hii
       </PageSection>
     </PageBody>
   </PageWrapper>
 </template>
-<style lang="scss" scoped>
-
-</style>

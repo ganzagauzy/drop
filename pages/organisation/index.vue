@@ -9,7 +9,12 @@ export default {
   data() {
     return {
       delLoading:false,
+      isLoading:false,
       dataArray: [
+        {
+          name:"",
+          email:""
+        }
       ],
     }
   },
@@ -52,7 +57,7 @@ export default {
       }
       
     },
-    async deleteOrg(item) {
+    deleteOrg() {
       try {
         this.delLoading = true
         let token ="";
@@ -69,15 +74,15 @@ export default {
         } else {
         //   console.log('No user info found in local storage')
         }
-        const response = await this.$axios.delete(`orgs/${item.id}`,{
-            headers: {
-              Authorization: refrToken || token,
-            },
-          })
-        if (!response || !response.data) return false
-        else {
-          this.getOrgs();
-        }
+        // const response = await this.$axios.delete(`orgs/${item.id}`,{
+        //     headers: {
+        //       Authorization: refrToken || token,
+        //     },
+        //   })
+        // if (!response || !response.data) return false
+        // else {
+        //   this.getOrgs();
+        // }
       } catch (error) {
         //  console.log(error);
       } finally {
@@ -141,7 +146,7 @@ export default {
                             'cursor-not-allowed opacity-50': delLoading,
                           }"
                           :disabled="delLoading"
-                           @click="deleteOrg(item)">{{ delLoading ? 'Loading...' : 'Delete' }}</button></td>
+                           @click="deleteOrg()">{{ delLoading ? 'Loading...' : 'Delete' }}</button></td>
                       </tr>
                       <tr v-if="dataArray.length < 1">
                         <td colspan="3" class="py-2 px-4 text-center">

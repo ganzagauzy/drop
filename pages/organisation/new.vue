@@ -42,6 +42,7 @@ export default {
           {
             name: this.name,
             email: this.email,
+            kind: "SHARED"
           },
           {
             headers: {

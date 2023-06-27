@@ -2,7 +2,6 @@
 definePageMeta({
   layout: 'app',
 });
-const {id} = useRoute().params;
 
 </script>
 
@@ -14,7 +13,7 @@ const {id} = useRoute().params;
     
     <PageBody>
       <PageSection>
-        <DashboardSingleapp />
+        <AppSingleapp />
       </PageSection>
       <pageSection>
         <!-- <DashboardHome /> -->

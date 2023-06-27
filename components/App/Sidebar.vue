@@ -100,6 +100,27 @@ export default defineComponent({
         </li>
         <li>
           <Anchor
+            :to="{ name: 'dashboard-id-app-releases' }"
+            class="group flex items-center mb-4 hover:no-underline"
+          >
+            <div
+              class="flex items-center mr-4 px-2 py-2    dark:ring-0 dark:shadow-none dark:group-hover:shadow-none dark:group-hover:highlight-white/10 group-hover:shadow-sky-200 dark:highlight-white/10"
+              
+            >
+            <!-- group-hover:shadow group-hover:ring-slate-900/10 -->
+            <!-- rounded-md ring-1 ring-slate-900/5 shadow-sm -->
+              <IconUil:document class="text-xs" />
+            </div>
+            <span
+              class="text-sm font-semibold capitalize"
+              
+            >
+              {{ $t('releases') }}
+            </span>
+          </Anchor>
+        </li>
+        <li>
+          <Anchor
             :to="{ name: 'dashboard-id-app-activities' }"
             class="group flex items-center mb-4 hover:no-underline"
           >

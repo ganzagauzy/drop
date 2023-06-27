@@ -68,8 +68,9 @@
           <div class="min-w-0 flex-auto">
             <p class="text-sm font-bold leading-6 text-900">
               <nuxt-link
+                v-if="app"
                 class="cursor"
-                :to="{ name: 'dashboard-id-app', params: { app: app.id } }"
+                :to="{ name: 'dashboard-id-app', params: { app: app.id || i } }"
                 >{{ app.name }}</nuxt-link
               >
             </p>
@@ -162,7 +163,15 @@ export default {
           lastSeen: null,
         },
       ],
-      newArray:[]
+      newArray:[
+        {
+          created_at:"",
+          org_id:"",
+          name:"",
+          id:"",
+
+        }
+      ]
     }
   },
   created() {
@@ -241,7 +250,7 @@ export default {
           let array = [];
           array = response.data.apps
           this.newArray = response.data.apps;
-          console.log("Apps", this.newArray);
+          // console.log("Apps", this.newArray);
           
         }
       } catch (error) {

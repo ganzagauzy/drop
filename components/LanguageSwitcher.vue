@@ -82,14 +82,4 @@ const localeSetting = useState<string>('locale.setting')
   </div>
 </template>
 
-function useState<T>(arg0: string) {
-  throw new Error('Function not implemented.')
-}
 
-function useState<T>(arg0: string) {
-  throw new Error('Function not implemented.')
-}
-
-function useState<T>(arg0: string) {
-  throw new Error('Function not implemented.')
-}

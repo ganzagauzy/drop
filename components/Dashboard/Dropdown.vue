@@ -16,10 +16,10 @@
         <div class="flex">
           <img
             class="w-6 h-6 rounded-full"
-            src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
-            alt="Avatar of Jonathan Reinink"
+            src="https://www.pngwing.com/en/free-png-dpbie"
+             alt="Avatar of Jonathan Reinink"
           />
-          <span class="ml-2 text-sm font-semibold">Alfian</span>
+          <span class="ml-2 text-sm font-semibold">{{ name }}</span>
           <IconUil:angle-down />
         </div>
       </ListboxButton>
@@ -66,7 +66,8 @@ import {
   ListboxOptions,
   ListboxOption,
 } from '@headlessui/vue'
-import { defineProps, toRef } from 'vue'
+import { defineComponent, defineProps, onMounted, toRef } from 'vue'
+
 
 const props = defineProps({
   type: {
@@ -74,9 +75,19 @@ const props = defineProps({
     default: 'dropdown-right-top',
   },
 })
-
-const currentStyle = toRef(props, 'type')
 const router = useRouter();
+const currentStyle = toRef(props, 'type')
+let name = '';
+
+// Retrieve the name from local storage when the component is mounted
+onMounted(() => {
+  const userInfo = localStorage.getItem('user_info');
+  if (userInfo) {
+    const parsedInfo = JSON.parse(userInfo);
+    name = parsedInfo.data.names;
+  }
+});
+
 // Define the method to handle the option click event
 const handleOptionClick = (option: string) => {
   if (option === 'Profile') {
@@ -84,8 +95,11 @@ const handleOptionClick = (option: string) => {
   } else if (option === 'Settings') {
     // console.log('Settings option clicked')
   } else if (option === 'Logout') {
+    localStorage.removeItem('user_info');
     router.push('/');
-    // console.log('Logout option clicked')
   }
 }
+// Execute an action when the component is mounted
+
+// 
 </script>
